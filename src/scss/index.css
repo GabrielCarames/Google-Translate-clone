@@ -1,5 +1,6 @@
 body {
   font-family: "Kumbh Sans";
+  margin: 0px;
 }
 
 .app__header {
@@ -51,5 +52,87 @@ body {
   border-radius: 3000px;
   width: 25px;
   height: 25px;
+}
+
+.body-top {
+  height: 95px;
+  background-color: rgba(128, 128, 128, 0.048);
+}
+
+.body-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 95px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.body-button-container .fas {
+  font-size: 25px;
+}
+
+.body-button-container .body-save-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 40px;
+}
+
+.body-button-container .body-save-button-container .body__save-button {
+  height: 75px;
+  width: 75px;
+  border-radius: 3000px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.body-button-container .body-history-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.body-button-container .body-history-button-container .body__history-button {
+  height: 75px;
+  width: 75px;
+  border-radius: 3000px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.body-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.body-translate-container {
+  background-color: green;
+  height: 225px;
+  width: 1280px;
 }
 /*# sourceMappingURL=index.css.map */

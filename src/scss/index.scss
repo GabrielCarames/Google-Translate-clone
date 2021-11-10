@@ -2,6 +2,9 @@ $KumbhSans:'Kumbh Sans';
 $textColor: #5f6368;
 
 body{
-    font-family: $KumbhSans;    
+    font-family: $KumbhSans;
+    margin: 0px;
 }
 @import './app/header';
+@import './app/body';
+@import './app/translate';

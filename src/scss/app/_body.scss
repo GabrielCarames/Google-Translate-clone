@@ -1,0 +1,46 @@
+@mixin button {
+    height: 75px;
+    width: 75px;
+    border-radius: 3000px;
+    border: 1px solid rgba(0,0,0,0.12);
+}
+@mixin button-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.body-top{
+    height: 95px;
+    background-color: rgba(128, 128, 128, 0.048);
+}
+
+
+.body-button-container{
+    display: flex;
+    margin-top: 95px;
+    align-items: center;
+    justify-content: center;
+    .fas{
+        font-size: 25px
+    }
+    .body-save-button-container{
+        @include button-container;
+        margin-left: 40px;
+        .body__save-button{
+            @include button;
+        }
+        
+    }
+    .body-history-button-container{
+        @include button-container;
+        .body__history-button{
+            @include button;
+        }
+    }
+}
+
+.body-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
