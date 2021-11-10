@@ -1,1 +1,55 @@
-/* No CSS *//*# sourceMappingURL=index.css.map */
+body {
+  font-family: "Kumbh Sans";
+}
+
+.app__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  margin-left: 20px;
+}
+
+.app__header .header-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.app__header .header-container .header__title {
+  color: #5f6368;
+  font-size: 18px;
+  font-weight: normal;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.app__header .header-container .header__logo {
+  height: 24px;
+  width: 74px;
+  display: inline-block;
+}
+
+.app__header .header-toggle-theme-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.app__header .header-toggle-theme-container .header__button {
+  background-color: black;
+  margin-right: 20px;
+  border-radius: 3000px;
+  width: 25px;
+  height: 25px;
+}
+/*# sourceMappingURL=index.css.map */
