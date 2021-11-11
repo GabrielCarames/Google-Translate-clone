@@ -1,6 +1,12 @@
+import { useState } from "react";
+
 var axios = require("axios").default;
 
 export function useTranslateHelper () {
+
+    const [ textToTranslate, setTextToTranslate ] = useState()
+    const [ source, setSource ] = useState() //Representa el primer idioma a traducir, como no hay nada por default, se va a detectar automaticamente el idioma introducido
+    const [ target, setTarget ] = useState('en') //Representa el idioma por defecto de la pagina en general, y el idioma por defecto a traducir, ej: metes "hola" y lo traduce a ingles "hello"
 
     const objetoDeIdiomasParaNoGastarTicketsYNoCagarXd = {
         "data": {
@@ -453,10 +459,10 @@ export function useTranslateHelper () {
         }
       }
 
-    var options = {
+    var languagesOptions = {
       method: 'GET',
       url: 'https://google-translate1.p.rapidapi.com/language/translate/v2/languages',
-      params: {target: 'en'},
+      params: {target: target},
       headers: {
         'accept-encoding': 'application/gzip',
         'x-rapidapi-host': 'google-translate1.p.rapidapi.com',
@@ -465,17 +471,34 @@ export function useTranslateHelper () {
     };
     
     const getLanguages = () => {
-        // axios.request(options).then(function (response) {
+        // axios.request(languagesOptions).then(function (response) {
         //     console.log(response.data);
         // }).catch(function (error) {
         //     console.error(error);
         // });
         console.log(objetoDeIdiomasParaNoGastarTicketsYNoCagarXd)
     }
-
-    return {
-        getLanguages
+    
+    const getTraduction = () => {
+        var traductionOptions = {
+            method: 'POST',
+            url: 'https://google-translate1.p.rapidapi.com/language/translate/v2',
+            headers: {
+              'content-type': 'application/x-www-form-urlencoded',
+              'accept-encoding': 'application/gzip',
+              'x-rapidapi-host': 'google-translate1.p.rapidapi.com',
+              'x-rapidapi-key': '7d349e67bemsh0695bb60cc2ce3dp18873fjsn8dab5e90bb12'
+            },
+            data: {q: textToTranslate, target: target, source: source}
+          };
+        axios.request(traductionOptions).then(function (response) {
+            console.log(response.data);
+        }).catch(function (error) {
+            console.error(error);
+        });
     }
+
+    return { getLanguages, getTraduction, setTextToTranslate, setTarget, setSource }
 }
 
 export default useTranslateHelper

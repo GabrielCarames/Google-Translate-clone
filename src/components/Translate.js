@@ -1,7 +1,7 @@
 import useTranslateHelper from "../hooks/useTranslateHelper"
 
 const Translate = () => {
-    const { getLanguages } = useTranslateHelper()
+    const { getLanguages, getTraduction, setTextToTranslate, setTarget, setSource } = useTranslateHelper()
 
     return (
         <div className="body-translate-container">
