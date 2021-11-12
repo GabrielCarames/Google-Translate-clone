@@ -498,7 +498,9 @@ export function useTranslateHelper () {
         });
     }
 
-    return { getLanguages, getTraduction, setTextToTranslate, setTarget, setSource }
+    return { getLanguages, getTraduction, setTextToTranslate, setTarget, setSource, target }
 }
+
+
 
 export default useTranslateHelper

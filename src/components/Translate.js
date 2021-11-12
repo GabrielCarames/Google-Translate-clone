@@ -1,13 +1,14 @@
 import useTranslateHelper from "../hooks/useTranslateHelper"
 
 const Translate = () => {
-    const { getLanguages, getTraduction, setTextToTranslate, setTarget, setSource } = useTranslateHelper()
+    const { getLanguages, getTraduction, setTextToTranslate, setTarget, setSource, target } = useTranslateHelper()
     const lista = () => {
         return (<ul className="translate-list">
-        <li className="list__item"><p className="list__text">Ingles</p></li>
+        <li className={target?"list__item--target":"list__item"}><p className="list__text">Ingles</p></li>
         <li className="list__item"><p className="list__text">Español</p></li>
     </ul>)
     }
+    console.log(target)
     return (
         <article className="body-translate-container translate">
             <header className="translate-header">
@@ -20,13 +21,13 @@ const Translate = () => {
             </header>
             <body className="translate-body">
                 <div className="translate__text-to-translate">
-                    <textarea className="translate__input" type="text"></textarea>
+                    <textarea className="translate__textarea" type="text"></textarea>
                 </div>
                 <div className="translate__traduction">
                     <p className="translate__text-result">Traducción</p>
                 </div>
             </body>
-            <button onClick={() => getLanguages()}>dame idiomas</button>
+            {/* <button onClick={() => getLanguages()}>dame idiomas</button> */}
         </article>
     )
 }
