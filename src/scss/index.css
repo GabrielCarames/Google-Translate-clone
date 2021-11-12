@@ -131,8 +131,95 @@ body {
 }
 
 .body-translate-container {
-  background-color: green;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 225px;
   width: 1280px;
+}
+
+.body-translate-container .translate-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  border: 1px solid #433;
+  width: 100%;
+}
+
+.body-translate-container .translate-header .translate__left-navbar {
+  border: 1px solid #433;
+  width: 50%;
+  height: 100%;
+}
+
+.body-translate-container .translate-header .translate__left-navbar .translate-list {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0px;
+}
+
+.body-translate-container .translate-header .translate__left-navbar .list__item {
+  margin-left: 35px;
+}
+
+.body-translate-container .translate-header .translate__left-navbar .list__item .list__text {
+  margin: 0px;
+}
+
+.body-translate-container .translate-header .translate__right-navbar {
+  border: 1px solid #433;
+  width: 50%;
+  height: 100%;
+}
+
+.body-translate-container .translate-header .translate__right-navbar .translate-list {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0px;
+}
+
+.body-translate-container .translate-header .translate__right-navbar .list__item {
+  margin-left: 35px;
+}
+
+.body-translate-container .translate-header .translate__right-navbar .list__item .list__text {
+  margin: 0px;
+}
+
+.body-translate-container .translate-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #433;
+  width: 100%;
+  height: 175px;
+}
+
+.body-translate-container .translate-body .translate__text-to-translate {
+  border: 1px solid #433;
+  width: 50%;
+}
+
+.body-translate-container .translate-body .translate__text-to-translate .translate__input {
+  font-size: 30px;
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  resize: none;
+}
+
+.body-translate-container .translate-body .translate__traduction {
+  border: 1px solid #433;
+  width: 50%;
 }
 /*# sourceMappingURL=index.css.map */
