@@ -2,6 +2,7 @@
     .translate-list{
         list-style: none;
         display: flex;
+        align-items: center;
         padding: 0px;
         margin: 0px;
         height: 100%;
@@ -22,7 +23,9 @@
                 color: #1a73e8;
                 margin: 0px;
             }
+            
         }
+        
         .list__item{
             display: flex;
             justify-content: center;
@@ -35,6 +38,20 @@
             }
             .list__text{
                 margin: 0px;
+            }
+        }
+        .list__arrow{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 20px;
+            height: 40px;
+            width: 40px;
+            border-radius: 30px;
+            cursor: pointer;
+            &:hover{
+                cursor: pointer;
+                background-color: #3c404310;
             }
         }
     }
@@ -52,6 +69,7 @@
     flex-direction: column;
     height: 225px;
     width: 1280px;
+    margin-top: -30px;
     border-radius: 8px;
     .translate-header{
         display: flex;
@@ -82,16 +100,20 @@
             border-top: none;
             
             .translate__textarea{
-                font-size: 30px;
-                height: 100%;
-                width: 100%;
+                font-size: 24px;
+                color: #3c4043;
+                height: 87%;
+                width: 95%;
                 padding: 0px;
+                padding-left: 30px;
+                padding-top: 20px;
                 margin: 0px;
                 resize: none;
                 border: 1px solid rgba(0,0,0,0.12);
                 border-right: none;
                 border-left: none;
                 border-top: none;
+                margin-top: 2px;
                 &:focus{
                     outline: none;
                 }
@@ -100,6 +122,12 @@
         .translate__traduction{
             border: 1px solid rgba(0,0,0,0.12);
             width: 50%;
+            .translate__text-result{
+                padding: 20px 58px 20px 24px;
+                font-size: 24px;
+                color: #5f6368;
+                margin: 0px;
+            }
         }
     }
 }

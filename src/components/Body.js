@@ -9,11 +9,11 @@ const Body = () =>{
                 <div className="body-button-container">
                     <div className="body-history-button-container">
                         <button className="body__history-button"><i className="fas fa-history"></i></button>
-                        <span>Historial</span>
+                        <span className="body__history-span">Historial</span>
                     </div>
                     <div className="body-save-button-container">
                         <button className="body__save-button"><i class="fas fa-star"></i></button>
-                        <span>Guardados</span>
+                        <span className="body__save-span">Guardados</span>
                     </div>
                     
                 </div>

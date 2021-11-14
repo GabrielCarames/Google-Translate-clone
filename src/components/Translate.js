@@ -6,6 +6,7 @@ const Translate = () => {
         return (<ul className="translate-list">
         <li className={target?"list__item--target":"list__item"}><p className="list__text">Ingles</p></li>
         <li className="list__item"><p className="list__text">Español</p></li>
+        <li className="list__arrow"><i class="fas fa-chevron-down"></i></li>
     </ul>)
     }
     console.log(target)
@@ -27,7 +28,7 @@ const Translate = () => {
                     <p className="translate__text-result">Traducción</p>
                 </div>
             </body>
-            {/* <button onClick={() => getLanguages()}>dame idiomas</button> */}
+            <button onClick={() => getLanguages()}>dame idiomas</button>
         </article>
     )
 }

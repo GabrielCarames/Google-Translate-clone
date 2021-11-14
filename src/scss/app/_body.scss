@@ -3,6 +3,10 @@
     width: 75px;
     border-radius: 3000px;
     border: 1px solid rgba(0,0,0,0.12);
+    cursor: pointer;
+    background-color: white;
+    color: #757575;
+
 }
 @mixin button-container {
     display: flex;
@@ -29,6 +33,10 @@
         .body__save-button{
             @include button;
         }
+        .body__save-span{
+            margin-top: 15px;
+            color: #757575;
+        }
         
     }
     .body-history-button-container{
@@ -36,6 +44,11 @@
         .body__history-button{
             @include button;
         }
+        .body__history-span{
+            margin-top: 15px;
+            color: #757575;
+        }
+        
     }
 }
 
