@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
+import qs from "qs" 
 var axios = require("axios").default;
 
 export function useTranslateHelper () {
@@ -485,11 +486,10 @@ export function useTranslateHelper () {
             url: 'https://google-translate1.p.rapidapi.com/language/translate/v2',
             headers: {
               'content-type': 'application/x-www-form-urlencoded',
-              'accept-encoding': 'application/gzip',
               'x-rapidapi-host': 'google-translate1.p.rapidapi.com',
               'x-rapidapi-key': '7d349e67bemsh0695bb60cc2ce3dp18873fjsn8dab5e90bb12'
             },
-            data: {q: textToTranslate, target: target, source: source}
+            data: qs.stringify({q: textToTranslate, target: target, source: source})
           };
         axios.request(traductionOptions).then(function (response) {
             console.log(response.data);
@@ -498,7 +498,17 @@ export function useTranslateHelper () {
         });
     }
 
-    return { getLanguages, getTraduction, setTextToTranslate, setTarget, setSource, target }
+    const translateText = (text) =>{
+      setTextToTranslate(text)
+    }
+    useEffect(()=>{
+      const timer = setTimeout(async () => {
+        getTraduction()
+    }, 1000);
+    return () => clearTimeout(timer);
+    },[textToTranslate])
+
+    return { getLanguages, getTraduction, setTextToTranslate, setTarget, setSource, target, translateText }
 }
 
 
