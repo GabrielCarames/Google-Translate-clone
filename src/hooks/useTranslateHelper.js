@@ -9,6 +9,7 @@ export function useTranslateHelper () {
     const [ source, setSource ] = useState() //Representa el primer idioma a traducir, como no hay nada por default, se va a detectar automaticamente el idioma introducido
     const [ target, setTarget ] = useState('en') //Representa el idioma por defecto de la pagina en general, y el idioma por defecto a traducir, ej: metes "hola" y lo traduce a ingles "hello"
     const [ textTranslated, setTextTranslated] = useState('Traduccion')
+    const [ languages, setLanguages ] = useState()
     const objetoDeIdiomasParaNoGastarTicketsYNoCagarXd = {
         "data": {
           "languages": [
@@ -477,7 +478,10 @@ export function useTranslateHelper () {
         // }).catch(function (error) {
         //     console.error(error);
         // });
-        console.log(objetoDeIdiomasParaNoGastarTicketsYNoCagarXd)
+        setLanguages(objetoDeIdiomasParaNoGastarTicketsYNoCagarXd.data.languages)
+        console.log("cosa", objetoDeIdiomasParaNoGastarTicketsYNoCagarXd.data.languages)
+        console.log(objetoDeIdiomasParaNoGastarTicketsYNoCagarXd.data.languages)
+        console.log(languages,setLanguages)
     }
     
     const getTraduction = () => {
@@ -492,9 +496,7 @@ export function useTranslateHelper () {
             data: qs.stringify({q: textToTranslate, target: target, source: source})
           };
         axios.request(traductionOptions).then(function (response) {
-            console.log(response.data);
-            setTextTranslated(response.data.translations);
-            console.log(response.data.translations)
+            setTextTranslated(response.data.data.translations[0].translatedText);
         }).catch(function (error) {
             console.error(error);
         });
@@ -511,7 +513,7 @@ export function useTranslateHelper () {
     },[textToTranslate])
 
 
-    return { getLanguages, getTraduction, setTextToTranslate, setTarget, setSource, target, translateText, textTranslated }
+    return { getLanguages, getTraduction, setTextToTranslate, setTarget, setSource, target, translateText, textTranslated, languages }
 }
 
 

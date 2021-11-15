@@ -1,4 +1,5 @@
 import useTranslateHelper from "../hooks/useTranslateHelper"
+import LanguageList from "./LanguageList"
 
 const Translate = () => {
     const { getLanguages, getTraduction, setTextToTranslate, setTarget, setSource, target, translateText, textTranslated} = useTranslateHelper()
@@ -11,6 +12,7 @@ const Translate = () => {
                         <li className={target?"list__item--target":"list__item"}><p className="list__text">Español</p></li>
                         <li className="list__item"><p className="list__text">Ingles</p></li>
                         <li className="list__arrow"><i class="fas fa-chevron-down"></i></li>
+                        <LanguageList></LanguageList>
                     </ul>
                 </div>
                 <div className="translate__right-navbar">
