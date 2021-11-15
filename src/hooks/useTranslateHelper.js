@@ -8,7 +8,7 @@ export function useTranslateHelper () {
     const [ textToTranslate, setTextToTranslate ] = useState()
     const [ source, setSource ] = useState() //Representa el primer idioma a traducir, como no hay nada por default, se va a detectar automaticamente el idioma introducido
     const [ target, setTarget ] = useState('en') //Representa el idioma por defecto de la pagina en general, y el idioma por defecto a traducir, ej: metes "hola" y lo traduce a ingles "hello"
-
+    const [ textTranslated, setTextTranslated] = useState('Traduccion')
     const objetoDeIdiomasParaNoGastarTicketsYNoCagarXd = {
         "data": {
           "languages": [
@@ -493,6 +493,8 @@ export function useTranslateHelper () {
           };
         axios.request(traductionOptions).then(function (response) {
             console.log(response.data);
+            setTextTranslated(response.data.translations);
+            console.log(response.data.translations)
         }).catch(function (error) {
             console.error(error);
         });
@@ -508,7 +510,8 @@ export function useTranslateHelper () {
     return () => clearTimeout(timer);
     },[textToTranslate])
 
-    return { getLanguages, getTraduction, setTextToTranslate, setTarget, setSource, target, translateText }
+
+    return { getLanguages, getTraduction, setTextToTranslate, setTarget, setSource, target, translateText, textTranslated }
 }
 
 

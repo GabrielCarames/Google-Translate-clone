@@ -1,7 +1,7 @@
 import useTranslateHelper from "../hooks/useTranslateHelper"
 
 const Translate = () => {
-    const { getLanguages, getTraduction, setTextToTranslate, setTarget, setSource, target, translateText} = useTranslateHelper()
+    const { getLanguages, getTraduction, setTextToTranslate, setTarget, setSource, target, translateText, textTranslated} = useTranslateHelper()
     console.log(target)
     return (
         <article className="body-translate-container translate">
@@ -26,7 +26,7 @@ const Translate = () => {
                     <textarea className="translate__textarea" type="text" onChange={(e)=>translateText(e.target.value)}></textarea>
                 </div>
                 <div className="translate__traduction">
-                    <p className="translate__text-result">Traducción</p>
+                    <p className="translate__text-result">{textTranslated}</p>
                 </div>
             </body>
             <button onClick={() => getLanguages()}>dame idiomas</button>
