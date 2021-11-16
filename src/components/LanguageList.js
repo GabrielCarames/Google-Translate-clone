@@ -1,6 +1,8 @@
-const LanguageList = ({languages}) =>{
+
+const LanguageList = ({languages, showList}) =>{
+
     return(
-        <div className="language-list-container">
+        <div className={showList ? "language-list-container active" : "language-list-container"}>
             <ul className="language-list">
                 {
                     languages.map((item, id) => {

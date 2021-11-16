@@ -71,19 +71,26 @@
     width: 1280px;
     margin-top: -30px;
     border-radius: 8px;
+    border-top-left-radius: 0;
     .translate-header{
         display: flex;
         height: 50px;
         border: 1px solid rgba(0,0,0,0.12);
         width: 100%;
         border-radius: 8px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
         .translate__left-navbar{
             @include navbar;
             @include list;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 0;
         }
         .translate__right-navbar{
             @include navbar;
             @include list;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 0;
         }
     }
     .translate-body{

@@ -1,25 +1,34 @@
 .language-list-container{
     z-index: 300;
-    border: 1px solid black;
-    
+    border: 1px solid rgba(0,0,0,0.12);
     padding: 0px;
     margin: 0px;
-    
+    display: none;
+    &.active {
+        display:inline-block;
+    }
     .language-list{
         display: grid;
         grid-template-columns: repeat(6, 210px);
         padding: 0px;
         margin: 0px;
-        width: 1280px;
+        width: 1279px;
         height: 720px;
+        position: absolute;
+        background-color: white;
+        border: 1px solid rgba(0,0,0,0.12);
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
         .language-list__item{
             display: flex;
             justify-content: start;
             align-items: center;
             width: 210px;
-            height: 40px;
-            margin: 1px 0px 1px 20px;
+            height: 32px;
+            margin: 0px 0px 1px 20px;
+            padding-left: 20px;
             font-size: 14px;
+            color: #202020;
             &:hover{
                 background-color: rgba(0, 0, 0, 0.055);
                 cursor: pointer;

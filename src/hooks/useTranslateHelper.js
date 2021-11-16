@@ -22,6 +22,7 @@ export function useTranslateHelper () {
             data: qs.stringify({q: textToTranslate, target: target, source: source})
           };
         axios.request(traductionOptions).then(function (response) {
+            console.log(response.data.data.translations[0].translatedText)
             setTextTranslated(response.data.data.translations[0].translatedText);
         }).catch(function (error) {
             console.error(error);

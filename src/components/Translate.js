@@ -1,8 +1,10 @@
+import { useState } from "react"
 import useLanguagesListHelper from "../hooks/useLanguagesListHelper"
 import useTranslateHelper from "../hooks/useTranslateHelper"
 import LanguageList from "./LanguageList"
 
 const Translate = () => {
+    const [ showList, setShowList ] = useState()
     const { getTraduction, setTextToTranslate, setTarget, setSource, target, translateText, textTranslated} = useTranslateHelper()
     const { getLanguages, languages } = useLanguagesListHelper()
     
@@ -14,7 +16,7 @@ const Translate = () => {
                     <ul className="translate-list">
                         <li className={target?"list__item--target":"list__item"}><p className="list__text">Español</p></li>
                         <li className="list__item"><p className="list__text">Ingles</p></li>
-                        <li className="list__arrow"><i class="fas fa-chevron-down"></i></li>
+                        <li className="list__arrow" onClick={() => {getLanguages(); showList ? setShowList(false) : setShowList(true)}}><i class="fas fa-chevron-down"></i></li>
                         
                     </ul>
                 </div>
@@ -22,11 +24,11 @@ const Translate = () => {
                     <ul className="translate-list">
                         <li className={target?"list__item--target":"list__item"}><p className="list__text">Ingles</p></li>
                         <li className="list__item"><p className="list__text">Español</p></li>
-                        <li className="list__arrow"><i class="fas fa-chevron-down"></i></li>
+                        <li className="list__arrow" onClick={() => {getLanguages(); showList ? setShowList(false) : setShowList(true)}}><i class="fas fa-chevron-down"></i></li>
                     </ul>
                 </div>
             </header>
-            {languages && <LanguageList target={target} languages={languages} />}
+            {languages && <LanguageList target={target} languages={languages} showList={showList} />}
             <body className="translate-body">
                 <div className="translate__text-to-translate">
                     <textarea className="translate__textarea" type="text" onChange={(e)=>translateText(e.target.value)}></textarea>
@@ -35,7 +37,6 @@ const Translate = () => {
                     <p className="translate__text-result">{textTranslated}</p>
                 </div>
             </body>
-            <button onClick={() => getLanguages()}>dame idiomas</button>
         </article>
     )
 }
