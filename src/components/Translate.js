@@ -15,7 +15,7 @@ const Translate = () => {
                         <li className={target?"list__item--target":"list__item"}><p className="list__text">Español</p></li>
                         <li className="list__item"><p className="list__text">Ingles</p></li>
                         <li className="list__arrow"><i class="fas fa-chevron-down"></i></li>
-                        {languages && <LanguageList target={target} languages={languages} />}
+                        
                     </ul>
                 </div>
                 <div className="translate__right-navbar">
@@ -26,6 +26,7 @@ const Translate = () => {
                     </ul>
                 </div>
             </header>
+            {languages && <LanguageList target={target} languages={languages} />}
             <body className="translate-body">
                 <div className="translate__text-to-translate">
                     <textarea className="translate__textarea" type="text" onChange={(e)=>translateText(e.target.value)}></textarea>

@@ -402,4 +402,43 @@ body {
   color: #5f6368;
   margin: 0px;
 }
+
+.language-list-container {
+  z-index: 300;
+  border: 1px solid black;
+  padding: 0px;
+  margin: 0px;
+}
+
+.language-list-container .language-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (210px)[6];
+      grid-template-columns: repeat(6, 210px);
+  padding: 0px;
+  margin: 0px;
+  width: 1280px;
+  height: 720px;
+}
+
+.language-list-container .language-list .language-list__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 210px;
+  height: 40px;
+  margin: 1px 0px 1px 20px;
+  font-size: 14px;
+}
+
+.language-list-container .language-list .language-list__item:hover {
+  background-color: rgba(0, 0, 0, 0.055);
+  cursor: pointer;
+}
 /*# sourceMappingURL=index.css.map */
