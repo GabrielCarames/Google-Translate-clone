@@ -2,6 +2,7 @@ import { useState } from "react"
 import useLanguagesListHelper from "../hooks/useLanguagesListHelper"
 import useTranslateHelper from "../hooks/useTranslateHelper"
 import LanguageList from "./LanguageList"
+import SearchLanguage from "./SearchLanguage"
 
 const Translate = () => {
     const [ showList, setShowList ] = useState()
@@ -28,6 +29,7 @@ const Translate = () => {
                     </ul>
                 </div>
             </header>
+            <SearchLanguage languages={languages}></SearchLanguage>
             {languages && <LanguageList target={target} languages={languages} showList={showList} />}
             <body className="translate-body">
                 <div className="translate__text-to-translate">

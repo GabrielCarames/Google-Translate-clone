@@ -159,6 +159,7 @@ body {
   margin-top: -30px;
   border-radius: 8px;
   border-top-left-radius: 0;
+  background-color: white;
 }
 
 .body-translate-container .translate-header {
@@ -451,7 +452,6 @@ body {
   width: 210px;
   height: 32px;
   margin: 0px 0px 1px 20px;
-  padding-left: 20px;
   font-size: 14px;
   color: #202020;
 }
@@ -459,5 +459,45 @@ body {
 .language-list-container .language-list .language-list__item:hover {
   background-color: rgba(0, 0, 0, 0.055);
   cursor: pointer;
+}
+
+.language-list-container .language-list .language-list__item .fa-check {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  visibility: hidden;
+}
+
+.language-list-container .language-list .language-list__item--target {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 210px;
+  height: 32px;
+  margin: 0px 0px 1px 20px;
+  font-size: 14px;
+  color: #185abc;
+  background-color: #e8f0fe;
+  cursor: pointer;
+}
+
+.language-list-container .language-list .language-list__item--target .fa-check {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 30px;
 }
 /*# sourceMappingURL=index.css.map */
