@@ -29,7 +29,7 @@ const Translate = () => {
                     </ul>
                 </div>
             </header>
-            <SearchLanguage languages={languages}></SearchLanguage>
+            <SearchLanguage languages={languages} showList={showList} ></SearchLanguage>
             {languages && <LanguageList target={target} languages={languages} showList={showList} />}
             <body className="translate-body">
                 <div className="translate__text-to-translate">
