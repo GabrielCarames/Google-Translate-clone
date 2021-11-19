@@ -1,9 +1,26 @@
 $KumbhSans:'Kumbh Sans';
 $textColor: #5f6368;
 
+html {
+    box-sizing: border-box;
+    &*, *::before, *::after {
+        box-sizing: inherit;
+    }
+    height: 100vh;
+}
+
 body{
     font-family: $KumbhSans;
     margin: 0px;
+    height: 100%;
+    width: 100%;
+    #root {
+        height: 100%;
+    }
+    .app-container {
+        height: 100%;
+        overflow-y:scroll;
+    }
 }
 
 @import './app/header';

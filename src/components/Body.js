@@ -2,7 +2,7 @@ import Translate from "./Translate"
 
 const Body = () =>{
     return (
-        <body>
+        <div>
             <div className="body-top"></div>
             <div className="body-container">
                 <Translate></Translate>
@@ -19,7 +19,7 @@ const Body = () =>{
                 </div>
                 
             </div>
-        </body>
+        </div>
     )
 }
 export default Body

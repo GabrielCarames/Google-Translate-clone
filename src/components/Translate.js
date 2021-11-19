@@ -8,8 +8,9 @@ const Translate = () => {
     const [ showList, setShowList ] = useState()
     const { getTraduction, setTextToTranslate, setTarget, setSource, target, translateText, textTranslated} = useTranslateHelper()
     const { getLanguages, languages } = useLanguagesListHelper()
+    const [results, setResults] = useState()
     
-    console.log("sorsosa", languages)
+    console.log("sorsosa", showList)
     return (
         <article className="body-translate-container translate">
             <header className="translate-header">
@@ -17,7 +18,7 @@ const Translate = () => {
                     <ul className="translate-list">
                         <li className={target?"list__item--target":"list__item"}><p className="list__text">Español</p></li>
                         <li className="list__item"><p className="list__text">Ingles</p></li>
-                        <li className="list__arrow" onClick={() => {getLanguages(); showList ? setShowList(false) : setShowList(true)}}><i class="fas fa-chevron-down"></i></li>
+                        <li className="list__arrow" onClick={() => {getLanguages(); showList ? setShowList(false) : setShowList(true); setResults(false)}}><i class="fas fa-chevron-down"></i></li>
                         
                     </ul>
                 </div>
@@ -25,13 +26,13 @@ const Translate = () => {
                     <ul className="translate-list">
                         <li className={target?"list__item--target":"list__item"}><p className="list__text">Ingles</p></li>
                         <li className="list__item"><p className="list__text">Español</p></li>
-                        <li className="list__arrow" onClick={() => {getLanguages(); showList ? setShowList(false) : setShowList(true)}}><i class="fas fa-chevron-down"></i></li>
+                        <li className="list__arrow" onClick={() => {getLanguages(); showList ? setShowList(false) : setShowList(true); setResults(false)}}><i class="fas fa-chevron-down"></i></li>
                     </ul>
                 </div>
             </header>
-            <SearchLanguage languages={languages} showList={showList} ></SearchLanguage>
-            {languages && <LanguageList target={target} languages={languages} showList={showList} />}
-            <body className="translate-body">
+            <SearchLanguage languages={languages} showList={showList} setShowList={setShowList} results={results} setResults={setResults} ></SearchLanguage>
+            {(languages || showList) && <LanguageList target={target} languages={languages} showList={showList} />}
+            <body className={results ? "translate-body inactive" : "translate-body"}>
                 <div className="translate__text-to-translate">
                     <textarea className="translate__textarea" type="text" onChange={(e)=>translateText(e.target.value)}></textarea>
                 </div>
