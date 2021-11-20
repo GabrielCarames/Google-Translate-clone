@@ -467,8 +467,8 @@ export function useLanguagesListHelper (target) {
       };
 
       useEffect(() => {
-        console.log(languages)
-      }, [languages])
+        getLanguages()
+      }, [])
       
     const getLanguages = () => {
         // axios.request(languagesOptions).then(function (response) {

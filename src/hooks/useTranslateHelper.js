@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import qs from "qs" 
 var axios = require("axios").default;
 
-export function useTranslateHelper () {
+export function useTranslateHelper (languages) {
 
     const [ textToTranslate, setTextToTranslate ] = useState()
-    const [ source, setSource ] = useState() //Representa el primer idioma a traducir, como no hay nada por default, se va a detectar automaticamente el idioma introducido
+    const [ source, setSource ] = useState("es") //Representa el primer idioma a traducir, como no hay nada por default, se va a detectar automaticamente el idioma introducido
     const [ target, setTarget ] = useState('en') //Representa el idioma por defecto de la pagina en general, y el idioma por defecto a traducir, ej: metes "hola" y lo traduce a ingles "hello"
     const [ textTranslated, setTextTranslated] = useState('Traduccion')
     
@@ -32,6 +32,19 @@ export function useTranslateHelper () {
     const translateText = (text) =>{
       setTextToTranslate(text)
     }
+    const wholanguage = (type) =>{
+      let result
+      switch (type) {
+          case "target":
+              result = languages.filter((item)=>item.language === target)
+              return result[0].name
+          case "source":
+              result = languages.filter((item)=>item.language === source)
+              return result[0].name
+          default:
+              break;
+      }
+  }
     useEffect(()=>{
       const timer = setTimeout(async () => {
         getTraduction()
@@ -40,7 +53,7 @@ export function useTranslateHelper () {
     },[textToTranslate])
 
 
-    return { getTraduction, setTextToTranslate, setTarget, setSource, target, translateText, textTranslated }
+    return { getTraduction, setTextToTranslate, setTarget, setSource, target, translateText, textTranslated, source, wholanguage }
 }
 
 
