@@ -10,22 +10,23 @@ const Translate = () => {
     const { getTraduction, setTextToTranslate, setTarget, setSource, target, translateText, textTranslated, source, wholanguage} = useTranslateHelper(languages)
     const [results, setResults] = useState()
 
+    const [ changeLanguage, setChangeLanguage ] = useState()
 
-    console.log("sorsosa", showList)
+    console.log("sorsosa", changeLanguage)
     return (
         <article className="body-translate-container translate">
             <header className="translate-header">
                 <div className="translate__left-navbar">
                     <ul className="translate-list">
-                        <li className={target?"list__item--target":"list__item"}><p className="list__text">{languages && wholanguage("target")}</p></li>
-                        <li className="list__item"><p className="list__text">{languages && wholanguage("source")}</p></li>
+                        <li className={target && !changeLanguage ? "list__item--target" : changeLanguage === "source" ? "list__item--target" : "list__item"} onClick={() => changeLanguage === "target" && changeLanguage && setChangeLanguage("source")} ><p className="list__text">{languages && wholanguage("target")}</p></li>
+                        <li className={changeLanguage === "target" ? "list__item--target" : "list__item"}><p className="list__text" onClick={() => changeLanguage !== "target" && setChangeLanguage("target")}>{languages && wholanguage("source") }</p></li>
                         <li className="list__arrow" onClick={() => {showList ? setShowList(false) : setShowList(true); setResults(false)}}><i class="fas fa-chevron-down"></i></li>
                     </ul>
                 </div>
                 <div className="translate__right-navbar">
                     <ul className="translate-list">
-                        <li className={target?"list__item--target":"list__item"}><p className="list__text">{languages && wholanguage("source")}</p></li>
-                        <li className="list__item"><p className="list__text">{languages && wholanguage("target")}</p></li>
+                        <li className={target && !changeLanguage ? "list__item--target" : changeLanguage === "source" ? "list__item--target" :"list__item"} onClick={() => changeLanguage === "target" && changeLanguage && setChangeLanguage("source")} ><p className="list__text">{languages && wholanguage("source")}</p></li>
+                        <li className={changeLanguage === "target" ? "list__item--target" : "list__item"}><p className="list__text" onClick={() => changeLanguage !== "target" && setChangeLanguage("source") }>{languages && wholanguage("target") }</p></li>
                         <li className="list__arrow" onClick={() => {showList ? setShowList(false) : setShowList(true); setResults(false)}}><i class="fas fa-chevron-down"></i></li>
                     </ul>
                 </div>
