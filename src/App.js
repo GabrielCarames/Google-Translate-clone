@@ -1,5 +1,12 @@
 import Header from "./components/Header";
 import Body from "./components/Body";
+import { connect } from "react-redux";
+
+const mapStateToProps = (state) => {
+    return {
+      results: state
+    }
+}
 
 function App() {
   return (
@@ -10,4 +17,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(mapStateToProps)(App);

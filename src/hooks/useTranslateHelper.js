@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 
 import qs from "qs" 
+import { useSelector } from "react-redux";
 var axios = require("axios").default;
 
 export function useTranslateHelper (languages) {
+    const languagesCosa = useSelector(state => state.changeLanguageReducer)
 
     const [ textToTranslate, setTextToTranslate ] = useState()
-    const [ source, setSource ] = useState("es") //Representa el primer idioma a traducir, como no hay nada por default, se va a detectar automaticamente el idioma introducido
-    const [ target, setTarget ] = useState('en') //Representa el idioma por defecto de la pagina en general, y el idioma por defecto a traducir, ej: metes "hola" y lo traduce a ingles "hello"
+    
     const [ textTranslated, setTextTranslated] = useState('Traduccion')
     
     const getTraduction = () => {
@@ -19,7 +20,7 @@ export function useTranslateHelper (languages) {
               'x-rapidapi-host': 'google-translate1.p.rapidapi.com',
               'x-rapidapi-key': '7d349e67bemsh0695bb60cc2ce3dp18873fjsn8dab5e90bb12'
             },
-            data: qs.stringify({q: textToTranslate, target: target, source: source})
+            data: qs.stringify({q: textToTranslate, target: languagesCosa.target, source: languagesCosa.source})
           };
         axios.request(traductionOptions).then(function (response) {
             console.log(response.data.data.translations[0].translatedText)
@@ -28,39 +29,25 @@ export function useTranslateHelper (languages) {
             console.error(error);
         });
     }
-    const changeMamushka = (language) =>{
-        switch (language) {
-          case "target":
-            let targetCopy = target
-            targetCopy = source
-            setSource(targetCopy)
-            break;
-          case "source":
-            let sourceCopy = source
-            sourceCopy = target
-            setTarget(sourceCopy)
-            break;
-          default:
-            break;
-        }
-    }
 
     const translateText = (text) =>{
       setTextToTranslate(text)
     }
+
     const wholanguage = (type) =>{
       let result
       switch (type) {
           case "target":
-              result = languages.filter((item)=>item.language === target)
+              result = languages.filter((item)=>item.language === languagesCosa.target)
               return result[0].name
           case "source":
-              result = languages.filter((item)=>item.language === source)
+              result = languages.filter((item)=>item.language === languagesCosa.source)
               return result[0].name
           default:
               break;
       }
-  }
+    }
+
     useEffect(()=>{
       const timer = setTimeout(async () => {
         getTraduction()
@@ -69,7 +56,7 @@ export function useTranslateHelper (languages) {
     },[textToTranslate])
 
 
-    return { getTraduction, setTextToTranslate, setTarget, setSource, target, translateText, textTranslated, source, wholanguage, changeMamushka }
+    return { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage }
 }
 
 
