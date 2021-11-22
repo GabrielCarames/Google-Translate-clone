@@ -28,6 +28,22 @@ export function useTranslateHelper (languages) {
             console.error(error);
         });
     }
+    const changeMamushka = (language) =>{
+        switch (language) {
+          case "target":
+            let targetCopy = target
+            targetCopy = source
+            setSource(targetCopy)
+            break;
+          case "source":
+            let sourceCopy = source
+            sourceCopy = target
+            setTarget(sourceCopy)
+            break;
+          default:
+            break;
+        }
+    }
 
     const translateText = (text) =>{
       setTextToTranslate(text)
@@ -53,7 +69,7 @@ export function useTranslateHelper (languages) {
     },[textToTranslate])
 
 
-    return { getTraduction, setTextToTranslate, setTarget, setSource, target, translateText, textTranslated, source, wholanguage }
+    return { getTraduction, setTextToTranslate, setTarget, setSource, target, translateText, textTranslated, source, wholanguage, changeMamushka }
 }
 
 
