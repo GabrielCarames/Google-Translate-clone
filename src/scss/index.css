@@ -200,6 +200,7 @@ body .app-container {
   height: 100%;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 0;
+  border-right: none;
 }
 
 .body-translate-container .translate-header .translate__left-navbar .translate-list {
@@ -293,6 +294,7 @@ body .app-container {
   height: 100%;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 0;
+  border-left: none;
 }
 
 .body-translate-container .translate-header .translate__right-navbar .translate-list {
@@ -377,6 +379,29 @@ body .app-container {
 
 .body-translate-container .translate-header .translate__right-navbar .translate-list .list__arrow:hover {
   cursor: pointer;
+  background-color: #3c404310;
+}
+
+.body-translate-container .translate-header .translate__right-navbar .list__change-language {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  margin-left: -53px;
+  border-radius: 500px;
+  color: #5f6368;
+  cursor: pointer;
+}
+
+.body-translate-container .translate-header .translate__right-navbar .list__change-language:hover {
   background-color: #3c404310;
 }
 

@@ -82,12 +82,29 @@
             @include list;
             border-top-left-radius: 8px;
             border-bottom-left-radius: 0;
+            border-right: none;
         }
         .translate__right-navbar{
             @include navbar;
             @include list;
             border-top-right-radius: 8px;
             border-bottom-right-radius: 0;
+            border-left: none;
+            .list__change-language{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                padding: 0px;
+                margin-left: -53px;
+                border-radius: 500px;
+                color: #5f6368;
+                cursor: pointer;
+                &:hover{
+                    background-color: #3c404310;
+                }
+            }
         }
     }
     .translate-body{
