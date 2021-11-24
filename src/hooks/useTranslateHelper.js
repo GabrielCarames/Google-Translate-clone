@@ -4,8 +4,8 @@ import qs from "qs"
 import { useSelector } from "react-redux";
 var axios = require("axios").default;
 
-export function useTranslateHelper (languages) {
-    const languagesCosa = useSelector(state => state.changeLanguageReducer)
+export function useTranslateHelper (languages, showList, setShowList, results, setResults) {
+    const languagesState = useSelector(state => state.changeLanguageReducer)
 
     const [ textToTranslate, setTextToTranslate ] = useState()
     
@@ -20,7 +20,7 @@ export function useTranslateHelper (languages) {
               'x-rapidapi-host': 'google-translate1.p.rapidapi.com',
               'x-rapidapi-key': '7d349e67bemsh0695bb60cc2ce3dp18873fjsn8dab5e90bb12'
             },
-            data: qs.stringify({q: textToTranslate, target: languagesCosa.target, source: languagesCosa.source})
+            data: qs.stringify({q: textToTranslate, target: languagesState.target.language, source: languagesState.source.language})
           };
         axios.request(traductionOptions).then(function (response) {
             console.log(response.data.data.translations[0].translatedText)
@@ -34,14 +34,20 @@ export function useTranslateHelper (languages) {
       setTextToTranslate(text)
     }
 
+
+    const languageArrowList = () =>{
+      showList ? setShowList(false) : setShowList(true); setResults(false)
+    }
+
+
     const wholanguage = (type) =>{
       let result
       switch (type) {
           case "target":
-              result = languages.filter((item)=>item.language === languagesCosa.target)
+              result = languages.filter((item)=>item.language === languagesState.target)
               return result[0].name
           case "source":
-              result = languages.filter((item)=>item.language === languagesCosa.source)
+              result = languages.filter((item)=>item.language === languagesState.source)
               return result[0].name
           default:
               break;
@@ -56,7 +62,7 @@ export function useTranslateHelper (languages) {
     },[textToTranslate])
 
 
-    return { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage }
+    return { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage, languageArrowList }
 }
 
 
