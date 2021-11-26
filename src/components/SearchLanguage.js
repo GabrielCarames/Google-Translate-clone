@@ -1,7 +1,9 @@
 import useSearchLanguageHelper from "../hooks/useSearchLanguageHelper"
 
+
 const SearchLanguage = ({languages, showList, setShowList, results, setResults}) => {
 const {searchLanguage}=useSearchLanguageHelper(languages, setShowList, results, setResults)
+
     return (
         <>
             <div className={showList || results ? "search-language-container active" : "search-language-container"}>
@@ -15,7 +17,7 @@ const {searchLanguage}=useSearchLanguageHelper(languages, setShowList, results, 
                 {
                     results && results.map((result, id) => {
                         return (
-                                <li className="list__item" key={id}>
+                                <li className="list__item" key={id} >
                                     <p className="list__language-name">{result.name}</p>
                                 </li>
                                 )

@@ -24,7 +24,7 @@ const Translate = () => {
                 </div>
                 <div className="translate__right-navbar">
                     <ul className="translate-list">
-                        <li className={"list__change-language"} onClick={() => changeLanguage()}><i className="fas fa-exchange-alt"></i></li>
+                        <li className={"list__change-language"} onClick={() => {changeLanguage(); check()}}><i className="fas fa-exchange-alt"></i></li>
                         <li className={whatNameClass("target")} onClick={() => check()}><p className="list__text">{languagesState.target.name}</p></li>
                         <li className={whatNameClass("source")} onClick={() => check()}><p className="list__text" >{languagesState.source.name}</p></li>
                         <li className="list__arrow" onClick={() => languageArrowList()}><i class="fas fa-chevron-down"></i></li>

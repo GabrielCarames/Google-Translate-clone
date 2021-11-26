@@ -39,6 +39,7 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
     }
     const changeLanguage = () => {
       dispatch({type: '@changeLanguages'})
+      getTraduction()
     }
 
     const check = () => {

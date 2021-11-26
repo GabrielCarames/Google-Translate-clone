@@ -3,7 +3,7 @@ const languages = {
     target: {language: "en", name: "english"}//Representa el idioma por defecto de la pagina en general, y el idioma por defecto a traducir, ej: metes "hola" y lo traduce a ingles "hello"
 }
 
-const changeLanguageReducer = (state = languages, {type}) => {
+const changeLanguageReducer = (state = languages, {type, payload}) => {
     let languagesCopy
     switch (type) {
         case '@changeLanguages':
@@ -12,6 +12,11 @@ const changeLanguageReducer = (state = languages, {type}) => {
             const actualSource = languagesCopy.source.language
             languagesCopy.source.language = actualTarget
             languagesCopy.target.language = actualSource
+            return languagesCopy
+        case "@nao":
+            
+            languagesCopy = Object.assign({}, state)
+            languagesCopy.target = payload
             return languagesCopy
         default:
             return state
