@@ -15,16 +15,23 @@
             margin-top: 0;
             height: 100%;
             padding: 0px 20px 0px 20px;
+            transition: opacity 150ms linear;
             &:hover{
                 cursor: pointer;
                 background-color: #1a73e80a;
+            }
+            &.active{
+                border: none;
+                .list__text{
+                    color: black;
+                }
             }
             .list__text{
                 color: #1a73e8;
                 margin: 0px;
             } 
         }
-        .list__item{
+        .list__item--source{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -33,6 +40,12 @@
             &:hover{
                 cursor: pointer;
                 background-color: #3c404310;
+            }
+            &.active{
+                border-bottom: 3px solid #1a73e8;
+                .list__text{
+                    color: #1a73e8;
+                } 
             }
             .list__text{
                 margin: 0px;

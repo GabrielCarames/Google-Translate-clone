@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import qs from "qs" 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 var axios = require("axios").default;
 
 export function useTranslateHelper (languages, showList, setShowList, results, setResults) {
@@ -10,6 +10,10 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
     const [ textToTranslate, setTextToTranslate ] = useState()
     
     const [ textTranslated, setTextTranslated] = useState('Traduccion')
+
+    const dispatch = useDispatch()
+
+    const [state, setState] = useState(false)
     
     const getTraduction = () => {
         var traductionOptions = {
@@ -33,12 +37,36 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
     const translateText = (text) =>{
       setTextToTranslate(text)
     }
+    const changeLanguage = () => {
+      console.log(languagesState.source)
+      console.log(languagesState.target)
+      dispatch({type: '@setTarget', payload: languagesState.source});
+      dispatch({type: '@setSource', payload: languagesState.target})
+      
+    }
 
+    const check = () => {
+      changeLanguage()
+      if (!state){
+         setState(true)
+      }else{
+        setState(false)
+      }
+    }
 
     const languageArrowList = () =>{
       showList ? setShowList(false) : setShowList(true); setResults(false)
     }
-
+    const whatNameClass = (className) => {
+      switch (state) {
+        case true:
+          return `list__item--${className} active`
+        case false:
+          return `list__item--${className}`
+        default:
+          break
+      }
+    }
 
     const wholanguage = (type) =>{
       let result
@@ -62,7 +90,7 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
     },[textToTranslate])
 
 
-    return { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage, languageArrowList }
+    return { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage, languageArrowList, changeLanguage, whatNameClass, check }
 }
 
 
