@@ -38,11 +38,7 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
       setTextToTranslate(text)
     }
     const changeLanguage = () => {
-      console.log(languagesState.source)
-      console.log(languagesState.target)
-      dispatch({type: '@setTarget', payload: languagesState.source});
-      dispatch({type: '@setSource', payload: languagesState.target})
-      
+      dispatch({type: '@changeLanguages'})
     }
 
     const check = () => {

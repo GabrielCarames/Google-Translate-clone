@@ -11,7 +11,7 @@ const Translate = () => {
     const { getLanguages, languages } = useLanguagesListHelper()
     const { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage ,languageArrowList, changeLanguage, whatNameClass, check} = useTranslateHelper(languages, showList, setShowList,results,setResults)
     const languagesState = useSelector(state => state.changeLanguageReducer)
-    
+
     return (
         <article className="body-translate-container translate">
             <header className="translate-header">
