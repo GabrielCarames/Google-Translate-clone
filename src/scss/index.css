@@ -215,6 +215,7 @@ body .app-container {
   margin: 0px;
   margin-left: 35px;
   height: 100%;
+  font-size: 14px;
 }
 
 .body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--target {
@@ -241,7 +242,7 @@ body .app-container {
 }
 
 .body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--target.active {
-  border: none;
+  border-bottom: 3px solid #f0f0f0;
 }
 
 .body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--target.active .list__text {
@@ -251,6 +252,7 @@ body .app-container {
 .body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--target .list__text {
   color: #1a73e8;
   margin: 0px;
+  text-transform: uppercase;
 }
 
 .body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--source {
@@ -265,6 +267,7 @@ body .app-container {
           align-items: center;
   height: 100%;
   padding: 0px 20px 0px 20px;
+  border-bottom: 3px solid #f0f0f0;
 }
 
 .body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--source:hover {
@@ -282,6 +285,7 @@ body .app-container {
 
 .body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--source .list__text {
   margin: 0px;
+  text-transform: uppercase;
 }
 
 .body-translate-container .translate-header .translate__left-navbar .translate-list .list__arrow {
@@ -327,6 +331,7 @@ body .app-container {
   margin: 0px;
   margin-left: 35px;
   height: 100%;
+  font-size: 14px;
 }
 
 .body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--target {
@@ -353,7 +358,7 @@ body .app-container {
 }
 
 .body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--target.active {
-  border: none;
+  border-bottom: 3px solid #f0f0f0;
 }
 
 .body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--target.active .list__text {
@@ -363,6 +368,7 @@ body .app-container {
 .body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--target .list__text {
   color: #1a73e8;
   margin: 0px;
+  text-transform: uppercase;
 }
 
 .body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--source {
@@ -377,6 +383,7 @@ body .app-container {
           align-items: center;
   height: 100%;
   padding: 0px 20px 0px 20px;
+  border-bottom: 3px solid #f0f0f0;
 }
 
 .body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--source:hover {
@@ -394,6 +401,7 @@ body .app-container {
 
 .body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--source .list__text {
   margin: 0px;
+  text-transform: uppercase;
 }
 
 .body-translate-container .translate-header .translate__right-navbar .translate-list .list__arrow {
