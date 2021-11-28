@@ -288,6 +288,39 @@ body .app-container {
   text-transform: uppercase;
 }
 
+.body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--extra {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  padding: 0px 20px 0px 20px;
+  border-bottom: 3px solid #f0f0f0;
+}
+
+.body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--extra:hover {
+  cursor: pointer;
+  background-color: #3c404310;
+}
+
+.body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--extra.active {
+  border-bottom: 3px solid #f0f0f0;
+}
+
+.body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--extra.active .list__text {
+  color: black;
+}
+
+.body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--extra .list__text {
+  margin: 0px;
+  text-transform: uppercase;
+}
+
 .body-translate-container .translate-header .translate__left-navbar .translate-list .list__arrow {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -400,6 +433,39 @@ body .app-container {
 }
 
 .body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--source .list__text {
+  margin: 0px;
+  text-transform: uppercase;
+}
+
+.body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--extra {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  padding: 0px 20px 0px 20px;
+  border-bottom: 3px solid #f0f0f0;
+}
+
+.body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--extra:hover {
+  cursor: pointer;
+  background-color: #3c404310;
+}
+
+.body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--extra.active {
+  border-bottom: 3px solid #f0f0f0;
+}
+
+.body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--extra.active .list__text {
+  color: black;
+}
+
+.body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--extra .list__text {
   margin: 0px;
   text-transform: uppercase;
 }

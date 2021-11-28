@@ -462,7 +462,7 @@ export function useLanguagesListHelper (target) {
         headers: {
           'accept-encoding': 'application/gzip',
           'x-rapidapi-host': 'google-translate1.p.rapidapi.com',
-          'x-rapidapi-key': '7d349e67bemsh0695bb60cc2ce3dp18873fjsn8dab5e90bb12'
+          'x-rapidapi-key': '13eca88ee8mshe97f86ae1d3b431p19cfbbjsn59623dbc0ae3'
         }
       };
 

@@ -22,7 +22,7 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
             headers: {
               'content-type': 'application/x-www-form-urlencoded',
               'x-rapidapi-host': 'google-translate1.p.rapidapi.com',
-              'x-rapidapi-key': '7d349e67bemsh0695bb60cc2ce3dp18873fjsn8dab5e90bb12'
+              'x-rapidapi-key': '13eca88ee8mshe97f86ae1d3b431p19cfbbjsn59623dbc0ae3'
             },
             data: qs.stringify({q: textToTranslate, target: languagesState.target.language, source: languagesState.source.language})
           };
@@ -39,7 +39,7 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
     }
     const changeLanguage = () => {
       dispatch({type: '@changeLanguages'})
-      getTraduction()
+      //getTraduction()
     }
 
     const check = () => {

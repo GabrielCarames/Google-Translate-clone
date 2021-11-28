@@ -55,6 +55,29 @@
                 text-transform: uppercase;
             }
         }
+        .list__item--extra{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 0px 20px 0px 20px;
+            border-bottom: 3px solid #f0f0f0;
+            &:hover{
+                cursor: pointer;
+                background-color: #3c404310;
+            }
+            &.active{
+                border-bottom: 3px solid #f0f0f0;
+                .list__text{
+                    color: black;
+                } 
+            }
+            .list__text{
+                margin: 0px;
+                text-transform: uppercase;
+            }
+        }
+
         .list__arrow{
             display: flex;
             justify-content: center;
