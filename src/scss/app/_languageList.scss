@@ -39,6 +39,9 @@
                 justify-content: center;
                 visibility: hidden;
             }
+            .fa-history{
+                display: none;
+            }
         }
         .language-list__item--target{
             display: flex;
@@ -50,11 +53,36 @@
             font-size: 14px;
             color: #185abc;
             background-color: #e8f0fe;
-            cursor: pointer;
             .fa-check{
                 display: flex;
                 justify-content: center;
                 width: 30px;
+            }
+            .fa-history{
+                display: none;
+            }
+        }
+        .language-list__item--history{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            width: 210px;
+            height: 32px;
+            margin: 0px 0px 1px 20px;
+            font-size: 14px;
+            color: #202020;
+            &:hover{
+                background-color: rgba(0, 0, 0, 0.055);
+                cursor: pointer;
+            }
+            .fa-history{
+                display: flex;
+                justify-content: center;
+                width: 30px;
+                
+            }
+            .fa-check{
+                display: none;
             }
         }
 

@@ -4,6 +4,7 @@ const languages = {
     extra: {language: "sd", name: "sindhi"}
 }
 
+
 const changeLanguageReducer = (state = languages, {type, payload}) => {
     let languagesCopy
     switch (type) {
@@ -25,7 +26,7 @@ const changeLanguageReducer = (state = languages, {type, payload}) => {
             languagesCopy.target = payload
             languagesCopy.extra = state.target
             return languagesCopy
-        default:
+            default:
             return state
     }
 }
