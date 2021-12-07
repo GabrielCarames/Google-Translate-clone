@@ -40,8 +40,8 @@ const Translate = () => {
                 <div className="translate__text-to-translate">
                     <textarea className="translate__textarea" type="text" onChange={(e)=>translateText(e.target.value)}></textarea>
                 </div>
-                <div className="translate__traduction">
-                    <p className="translate__text-result">{textTranslated}</p>
+                <div className={textTranslated ? "translate__traduction active" : "translate__traduction"}>
+                    <p className="translate__text-result">{textTranslated === 'Traduccion' ? "" : textTranslated}</p>
                 </div>
             </body>
         </article>
