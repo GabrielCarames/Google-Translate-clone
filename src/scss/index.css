@@ -349,6 +349,28 @@ body .app-container {
   background-color: #3c404310;
 }
 
+.body-translate-container .translate-header .list__change-language {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50px;
+  height: 50px;
+  padding: 0px;
+  border-radius: 500px;
+  color: #5f6368;
+  cursor: pointer;
+}
+
+.body-translate-container .translate-header .list__change-language:hover {
+  background-color: #3c404310;
+}
+
 .body-translate-container .translate-header .translate__right-navbar {
   border: 1px solid rgba(0, 0, 0, 0.12);
   width: 50%;
@@ -498,29 +520,6 @@ body .app-container {
   background-color: #3c404310;
 }
 
-.body-translate-container .translate-header .translate__right-navbar .list__change-language {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 40px;
-  height: 40px;
-  padding: 0px;
-  margin-left: -53px;
-  border-radius: 500px;
-  color: #5f6368;
-  cursor: pointer;
-}
-
-.body-translate-container .translate-header .translate__right-navbar .list__change-language:hover {
-  background-color: #3c404310;
-}
-
 .body-translate-container .translate-body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -615,6 +614,17 @@ body .app-container {
   }
   .body-translate-container .translate-header .translate__right-navbar .translate-list .list__arrow {
     display: none;
+  }
+  .body-translate-container .translate-header .translate__right-navbar .list__change-language {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .body-translate-container .translate-body {
     -webkit-box-orient: vertical;
