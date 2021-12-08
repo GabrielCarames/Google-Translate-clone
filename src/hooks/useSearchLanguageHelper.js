@@ -7,6 +7,16 @@ export function useSearchLanguageHelper (languages, setShowList, results, setRes
     const searchLanguage = (language) => {
         setTextToSearch(language)
     }
+
+    const backToLanguage = () => {
+        const element = document.getElementById("language-result-id")
+        const container = document.getElementById("search-language-id")
+        const translateId = document.getElementById("translate-body-id")
+        element.className = "language-results" 
+        container.className = "search-language-container"
+        translateId.className = "translate-body"
+    }
+
     useEffect(()=>{
         if (!textToSearch) return 
         const timer = setTimeout(async () => {
@@ -20,7 +30,7 @@ export function useSearchLanguageHelper (languages, setShowList, results, setRes
     }, 1000);
     return () => clearTimeout(timer);
     },[textToSearch])
-    return {searchLanguage, results}
+    return {searchLanguage, backToLanguage}
 }
 
 export default useSearchLanguageHelper

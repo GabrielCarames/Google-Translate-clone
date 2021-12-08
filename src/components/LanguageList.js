@@ -26,7 +26,7 @@ const dispatch = useDispatch()
             <ul className="language-list">
                 {
                     languages.map((item, id) => {
-                            return <li className={checkLanguage("language-list__item",item, id)} key={id} onClick={()=>{console.log("ayuda", item);dispatch({type:"@languagesHistory", payload: item });dispatch({type:"@setLanguage", payload: item })}}><i class="fas fa-history"></i><i className="fas fa-check"></i>{item.name}</li>
+                            return <li className={checkLanguage("language-list__item",item, id)} key={id} onClick={()=>{dispatch({type:"@languagesHistory", payload: item });dispatch({type:"@setLanguage", payload: item })}}><i class="fas fa-history"></i><i className="fas fa-check"></i>{item.name}</li>
                     })
                 }
             </ul>

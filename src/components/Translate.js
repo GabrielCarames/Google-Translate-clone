@@ -36,7 +36,7 @@ const Translate = () => {
             </header>
             <SearchLanguage languages={languages} showList={showList} setShowList={setShowList} results={results} setResults={setResults} ></SearchLanguage>
             {(languages || showList) && <LanguageList target={languagesState.target} languages={languages} showList={showList} />}
-            <body className={results ? "translate-body inactive" : "translate-body"}>
+            <body className={results ? "translate-body inactive" : "translate-body"} id="translate-body-id">
                 <div className="translate__text-to-translate">
                     <textarea className="translate__textarea" type="text" onChange={(e)=>translateText(e.target.value)}></textarea>
                 </div>
