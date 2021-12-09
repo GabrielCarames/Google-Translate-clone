@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux"
 const LanguageList = ({target, languages, showList}) =>{
 const dispatch = useDispatch()
     const checkLanguage = (className, item, id) => {
-        console.log("languagehistorySelector y length item ",languagehistorySelector[id], id, languagehistorySelector.length, item.language)
         const filterCosa = languagehistorySelector.filter((cosa) => {
             return cosa.language === item.language
         })
@@ -22,7 +21,7 @@ const dispatch = useDispatch()
         
     const languagehistorySelector = useSelector(state => state.languageHistoryReducer)
     return(
-        <div className = {showList ? "language-list-container active" : "language-list-container"}>
+        <div className = {showList ? "language-list-container active" : "language-list-container"} id="language-list-id">
             <ul className="language-list">
                 {
                     languages.map((item, id) => {

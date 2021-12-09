@@ -88,3 +88,38 @@
 
     }
 }
+
+@media screen and (min-width: 320px) and (max-width: 1200px) {
+    .language-list-container{
+        .language-list{
+            grid-template-columns: 100%;
+            width: 100%;
+            .language-list__item{
+                width: 100%;
+                margin: 0;
+                padding: 0px 0px 1px 20px;
+                .fa-check{
+                }
+                .fa-history{
+                }
+            }
+            .language-list__item--target{
+                width: 100%;
+                margin: 0;
+                padding: 0px 0px 1px 20px;
+                .fa-check{
+                }
+                .fa-history{
+                }
+            }
+            .language-list__item--history{
+                width: 100%;
+                margin: 0;
+                padding: 0px 0px 1px 20px;
+                .fa-history{
+                }
+            }
+    
+        }
+    }
+}

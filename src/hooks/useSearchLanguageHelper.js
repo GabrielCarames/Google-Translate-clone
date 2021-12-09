@@ -30,7 +30,17 @@ export function useSearchLanguageHelper (languages, setShowList, results, setRes
     }, 1000);
     return () => clearTimeout(timer);
     },[textToSearch])
-    return {searchLanguage, backToLanguage}
+
+    const backToLanguagesList = () => {
+        if(results) {
+            setResults(null)
+            const languagesList = document.getElementById("language-list-id")
+            languagesList.className = "language-list-container active"
+            setShowList(true)
+        } else setShowList(false)
+    }
+
+    return {searchLanguage, backToLanguage, backToLanguagesList}
 }
 
 export default useSearchLanguageHelper

@@ -64,3 +64,20 @@
         }
     }
 }
+
+@media screen and (min-width: 320px) and (max-width: 1200px) {
+    .search-language-container {
+        .search-language-icon {
+        }
+        .search-language-container__input {
+        }
+    }
+    .language-results {
+        padding-left: 0px;
+        .language-results-list {
+            .list__item {
+
+            }
+        }
+    }
+}

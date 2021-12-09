@@ -43,12 +43,17 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
     }
 
     const check = () => {
-      changeLanguage()
-      if (!state){
-         setState(true)
-      }else{
-        setState(false)
-      }
+        if(window.innerWidth >= 320 && window.innerWidth <= 1200 ){
+            languageArrowList()
+        }else {
+            changeLanguage()
+            if (!state){
+                setState(true)
+            }else{
+                setState(false)
+            }
+
+        }
     }
 
     const languageArrowList = () =>{

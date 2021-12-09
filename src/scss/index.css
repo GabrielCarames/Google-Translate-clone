@@ -579,6 +579,13 @@ body .app-container {
     width: 100%;
     margin-top: 0;
   }
+  .body-translate-container .translate-header {
+    border-radius: 0;
+  }
+  .body-translate-container .translate-header .translate__left-navbar {
+    border-radius: 0;
+    border: none;
+  }
   .body-translate-container .translate-header .translate__left-navbar .translate-list {
     margin-left: 0;
     -webkit-box-pack: center;
@@ -596,6 +603,10 @@ body .app-container {
   }
   .body-translate-container .translate-header .translate__left-navbar .translate-list .list__arrow {
     display: none;
+  }
+  .body-translate-container .translate-header .translate__right-navbar {
+    border-radius: 0;
+    border: none;
   }
   .body-translate-container .translate-header .translate__right-navbar .translate-list {
     margin-left: 0;
@@ -632,14 +643,27 @@ body .app-container {
         -ms-flex-direction: column;
             flex-direction: column;
     height: 100%;
+    border-radius: 0;
+    border: none;
   }
   .body-translate-container .translate-body .translate__text-to-translate {
-    width: 100%;
+    width: 99%;
     height: 150px;
+    border-radius: 0;
+    border: none;
+  }
+  .body-translate-container .translate-body .translate__text-to-translate .translate__textarea {
+    border-radius: 0;
+    border: none;
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
   }
   .body-translate-container .translate-body .translate__traduction {
     display: none;
-    width: 100%;
+    width: auto;
     height: 150px;
     margin-top: 10px;
   }
@@ -785,6 +809,29 @@ body .app-container {
   display: none;
 }
 
+@media screen and (min-width: 320px) and (max-width: 1200px) {
+  .language-list-container .language-list {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    width: 100%;
+  }
+  .language-list-container .language-list .language-list__item {
+    width: 100%;
+    margin: 0;
+    padding: 0px 0px 1px 20px;
+  }
+  .language-list-container .language-list .language-list__item--target {
+    width: 100%;
+    margin: 0;
+    padding: 0px 0px 1px 20px;
+  }
+  .language-list-container .language-list .language-list__item--history {
+    width: 100%;
+    margin: 0;
+    padding: 0px 0px 1px 20px;
+  }
+}
+
 .search-language-container {
   display: none;
   height: 57px;
@@ -874,5 +921,11 @@ body .app-container {
 
 .language-results .language-results-list .list__item .list__language-name {
   font-size: 14px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1200px) {
+  .language-results {
+    padding-left: 0px;
+  }
 }
 /*# sourceMappingURL=index.css.map */

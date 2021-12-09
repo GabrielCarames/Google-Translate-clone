@@ -200,7 +200,10 @@
         width: 100%;
         margin-top: 0;
         .translate-header{
+            border-radius: 0;
             .translate__left-navbar{
+                border-radius: 0;
+                border: none;
                 .translate-list{
                     margin-left: 0;
                     justify-content: center;
@@ -219,6 +222,8 @@
                 }
             }
             .translate__right-navbar{
+                border-radius: 0;
+                border: none;
                 .translate-list{
                     margin-left: 0;
                     justify-content: center;
@@ -245,15 +250,25 @@
         .translate-body{
             flex-direction: column;
             height: 100%;
+            border-radius: 0;
+                border: none;
             .translate__text-to-translate{
-                width: 100%;
+                width: 99%;
                 height: 150px;
+                border-radius: 0;
+                border: none;
                 .translate__textarea{
+                    border-radius: 0;
+                    border: none;
+                    width: 100%;
+                    padding-right: 20px;
+                    padding-left: 20px;
+                    box-sizing: border-box;
                 }
             }
             .translate__traduction{
                 display: none;
-                width: 100%;
+                width: auto;
                 height: 150px;
                 margin-top: 10px;
                 &.active {
