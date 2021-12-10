@@ -18,6 +18,7 @@ const Translate = () => {
             <header className="translate-header">
                 <div className="translate__left-navbar">
                     <ul className="translate-list">
+                        <li className={whatNameClass("extra")}>DETECT LANGUAGE</li>
                         <li className={whatNameClass("target")} onClick={() => check()}><p className="list__text">{languagesState.source.name}</p></li>
                         <li className={whatNameClass("source")} onClick={() => check()}><p className="list__text" >{languagesState.target.name}</p></li>
                         <li className={whatNameClass("extra")} onClick={() =>{console.log(languagesState.extra);dispatch({type:"@changeExtra", payload: languagesState.extra });check()}}><p className="list__text" >{languagesState.extra.name}</p></li>
@@ -38,7 +39,7 @@ const Translate = () => {
             {(languages || showList) && <LanguageList target={languagesState.target} languages={languages} showList={showList} />}
             <body className={results ? "translate-body inactive" : "translate-body"} id="translate-body-id">
                 <div className="translate__text-to-translate">
-                    <textarea className="translate__textarea" type="text" onChange={(e)=>translateText(e.target.value)}></textarea>
+                    <textarea className="translate__textarea" type="text" autoFocus onChange={(e)=>translateText(e.target.value)}></textarea>
                 </div>
                 <div className={textTranslated ? "translate__traduction active" : "translate__traduction"}>
                     <p className="translate__text-result">{textTranslated === 'Traduccion' ? "" : textTranslated}</p>

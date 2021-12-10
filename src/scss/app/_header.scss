@@ -4,15 +4,17 @@
     justify-content: space-between;
     border-bottom: 1px solid rgba(0,0,0,0.12);
     margin-left: 20px;
+    height: 64px;
     .header-container{
         display: flex;
         align-items: center;
         .header__title{
             color: $textColor;
-            font-size: 18px;
+            font-size: 22px;
             font-weight: normal;
             display: inline-block;
             margin-left: 5px;
+            letter-spacing: -.5px;
         }
         .header__logo{
             height: 24px;

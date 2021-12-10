@@ -5,9 +5,10 @@
         align-items: center;
         padding: 0px;
         margin: 0px;
-        margin-left: 35px;
         height: 100%;
         font-size: 14px;
+        color: #5f6368;
+        letter-spacing: -.0178571429em;
         .list__item--target{
             display: flex;
             justify-content: center;
@@ -15,14 +16,14 @@
             border-bottom: 3px solid #1a73e8;
             margin-top: 0;
             height: 100%;
-            padding: 0px 20px 0px 20px;
+            padding: 0px 20px 0px 15px;
             transition: opacity 150ms linear;
             &:hover{
                 cursor: pointer;
                 background-color: #1a73e80a;
             }
             &.active{
-                border-bottom: 3px solid #f0f0f0;
+                border-bottom: 3px solid #ffffff;
                 .list__text{
                     color: black;
                 }
@@ -38,8 +39,8 @@
             justify-content: center;
             align-items: center;
             height: 100%;
-            padding: 0px 20px 0px 20px;
-            border-bottom: 3px solid #f0f0f0;
+            padding: 0px 20px 0px 15px;
+            border-bottom: 3px solid #ffffff;
             &:hover{
                 cursor: pointer;
                 background-color: #3c404310;
@@ -60,14 +61,14 @@
             justify-content: center;
             align-items: center;
             height: 100%;
-            padding: 0px 20px 0px 20px;
-            border-bottom: 3px solid #f0f0f0;
+            padding: 0px 20px 0px 15px;
+            border-bottom: 3px solid #ffffff;
             &:hover{
                 cursor: pointer;
                 background-color: #3c404310;
             }
             &.active{
-                border-bottom: 3px solid #f0f0f0;
+                border-bottom: 3px solid #ffffff;
                 .list__text{
                     color: black;
                 } 
@@ -106,23 +107,19 @@
     display: flex;
     flex-direction: column;
     width: 1280px;
-    margin-top: -30px;
+    margin-top: -31px;
     border-radius: 8px;
-    border-top-left-radius: 0;
     background-color: white;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
     .translate-header{
         display: flex;
-        height: 50px;
-        border: 1px solid rgba(0,0,0,0.12);
-        border-radius: 8px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
+        height: 48px;
         .translate__left-navbar{
             @include navbar;
             @include list;
             border-top-left-radius: 8px;
             border-bottom-left-radius: 0;
-            border-right: none;
+            border: none;
         }
         .list__change-language{
             display: flex;
@@ -143,22 +140,23 @@
             @include list;
             border-top-right-radius: 8px;
             border-bottom-right-radius: 0;
-            border-left: none;
-            
+            border: none;
         }
     }
     .translate-body{
         display: flex;
-        border: 1px solid rgba(0,0,0,0.12);
-        height: 175px;
+        border-top: 1px solid rgba(0,0,0,0.12);
+        height: 172px;
+        width: auto;
         margin: 0px;
         padding: 0px;
-        border-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
         &.inactive {
             display: none;
         }
         .translate__text-to-translate{
-            border: 1px solid rgba(0,0,0,0.12);
+            border-right: 1px solid rgba(0,0,0,0.12);
             width: 50%;
             border-top: none;
             
@@ -172,18 +170,16 @@
                 padding-top: 20px;
                 margin: 0px;
                 resize: none;
-                border: 1px solid rgba(0,0,0,0.12);
-                border-right: none;
-                border-left: none;
-                border-top: none;
+                border: none;
                 margin-top: 2px;
+                border-bottom-left-radius: 8px;
                 &:focus{
                     outline: none;
                 }
             }
         }
         .translate__traduction{
-            border: 1px solid rgba(0,0,0,0.12);
+            // border: 1px solid rgba(0,0,0,0.12);
             width: 50%;
             .translate__text-result{
                 padding: 20px 58px 20px 24px;
@@ -251,7 +247,7 @@
             flex-direction: column;
             height: 100%;
             border-radius: 0;
-                border: none;
+            border: none;
             .translate__text-to-translate{
                 width: 99%;
                 height: 150px;
