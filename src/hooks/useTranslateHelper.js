@@ -42,9 +42,9 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
       //getTraduction()
     }
 
-    const check = () => {
+    const check = (type) => {
         if(window.innerWidth >= 320 && window.innerWidth <= 1200 ){
-            languageArrowList()
+            languageArrowList(type)
         }else {
             changeLanguage()
             if (!state){
@@ -56,8 +56,8 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
         }
     }
 
-    const languageArrowList = () =>{
-      showList ? setShowList(false) : setShowList(true); setResults(false)
+    const languageArrowList = (type) =>{
+      showList ? setShowList(false) : setShowList(type); setResults(false)
     }
     const whatNameClass = (className) => {
       switch (state) {
@@ -92,7 +92,7 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
     },[textToTranslate])
 
 
-    return { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage, languageArrowList, changeLanguage, whatNameClass, check }
+    return { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage, languageArrowList, changeLanguage, whatNameClass, check, textToTranslate }
 }
 
 

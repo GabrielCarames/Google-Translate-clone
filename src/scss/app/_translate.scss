@@ -159,7 +159,8 @@
             border-right: 1px solid rgba(0,0,0,0.12);
             width: 50%;
             border-top: none;
-            
+            display: flex;
+            justify-content: center;
             .translate__textarea{
                 font-size: 24px;
                 color: #3c4043;
@@ -177,6 +178,23 @@
                     outline: none;
                 }
             }
+            .translate__fa-times{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 48px;
+                width: 48px;
+                font-size: 18px;
+                margin-top: 10px;
+                margin-right: 20px;
+                border-radius: 200px;
+                color: #5f6368;
+                cursor: pointer;
+                &:hover{
+                    background-color: #F4F4F4;
+                }
+            }
+            
         }
         .translate__traduction{
             // border: 1px solid rgba(0,0,0,0.12);

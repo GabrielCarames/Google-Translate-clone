@@ -16,9 +16,10 @@ const changeLanguageReducer = (state = languages, {type, payload}) => {
             languagesCopy.target = actualSource
             return languagesCopy
         case "@setLanguage":
-            console.log(payload)
+            console.log("hola", payload)
             languagesCopy = Object.assign({}, state)
-            languagesCopy.target = payload
+            if (payload.showList === "source") languagesCopy.source = payload.item
+            else languagesCopy.target = payload.item
             return languagesCopy
         case "@changeExtra":
             console.log(payload)

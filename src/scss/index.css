@@ -543,6 +543,12 @@ body .app-container {
   border-right: 1px solid rgba(0, 0, 0, 0.12);
   width: 50%;
   border-top: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .body-translate-container .translate-body .translate__text-to-translate .translate__textarea {
@@ -562,6 +568,30 @@ body .app-container {
 
 .body-translate-container .translate-body .translate__text-to-translate .translate__textarea:focus {
   outline: none;
+}
+
+.body-translate-container .translate-body .translate__text-to-translate .translate__fa-times {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 48px;
+  width: 48px;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-right: 20px;
+  border-radius: 200px;
+  color: #5f6368;
+  cursor: pointer;
+}
+
+.body-translate-container .translate-body .translate__text-to-translate .translate__fa-times:hover {
+  background-color: #F4F4F4;
 }
 
 .body-translate-container .translate-body .translate__traduction {
