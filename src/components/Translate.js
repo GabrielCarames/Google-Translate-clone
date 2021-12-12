@@ -19,7 +19,7 @@ const Translate = () => {
             <header className="translate-header">
                 <div className="translate__left-navbar">
                     <ul className="translate-list">
-                        <li className={whatNameClass("extra")}>DETECT LANGUAGE</li>
+                        <li className={whatNameClass("extra")} onClick={() => {dispatch({type:"@detectLanguage"})}}>DETECT LANGUAGE</li>
                         <li className={whatNameClass("target")} onClick={() => check("source")}><p className="list__text">{languagesState.source.name}</p></li>
                         <li className={whatNameClass("source")} onClick={() => check()}><p className="list__text" >{languagesState.target.name}</p></li>
                         <li className={whatNameClass("extra")} onClick={() =>{console.log(languagesState.extra);dispatch({type:"@changeExtra", payload: languagesState.extra });check()}}><p className="list__text" >{languagesState.extra.name}</p></li>

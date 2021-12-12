@@ -16,15 +16,18 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
     const [state, setState] = useState(false)
     
     const getTraduction = () => {
+        let data
+        if(languagesState.detect) data = qs.stringify({q: textToTranslate})
+        else data = qs.stringify({q: textToTranslate, target: languagesState.target.language, source: languagesState.source.language})
         var traductionOptions = {
             method: 'POST',
             url: 'https://google-translate1.p.rapidapi.com/language/translate/v2',
             headers: {
-              'content-type': 'application/x-www-form-urlencoded',
-              'x-rapidapi-host': 'google-translate1.p.rapidapi.com',
-              'x-rapidapi-key': '13eca88ee8mshe97f86ae1d3b431p19cfbbjsn59623dbc0ae3'
+                'content-type': 'application/x-www-form-urlencoded',
+                'x-rapidapi-host': 'google-translate1.p.rapidapi.com',
+                'x-rapidapi-key': '13eca88ee8mshe97f86ae1d3b431p19cfbbjsn59623dbc0ae3'
             },
-            data: qs.stringify({q: textToTranslate, target: languagesState.target.language, source: languagesState.source.language})
+            data: data
           };
         axios.request(traductionOptions).then(function (response) {
             console.log(response.data.data.translations[0].translatedText)
