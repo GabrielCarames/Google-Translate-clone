@@ -9,7 +9,7 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
 
     const [ textToTranslate, setTextToTranslate ] = useState()
     
-    const [ textTranslated, setTextTranslated] = useState('Traduccion')
+    const [ textTranslated, setTextTranslated] = useState('Translation')
 
     const dispatch = useDispatch()
 
@@ -91,8 +91,18 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
     return () => clearTimeout(timer);
     },[textToTranslate])
 
+    const autoGrow = (element) => {
+        element.style.height = "5px";
+        element.style.height = (element.scrollHeight)+"px";
+    }
 
-    return { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage, languageArrowList, changeLanguage, whatNameClass, check, textToTranslate }
+    const emptyValue = () => {
+        setTextToTranslate("")
+        const textArea = document.getElementById("translateText-textarea")
+        textArea.style.height = "150px";
+    }
+
+    return { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage, languageArrowList, changeLanguage, whatNameClass, check, textToTranslate, setTextTranslated, autoGrow, emptyValue }
 }
 
 

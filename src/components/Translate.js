@@ -9,10 +9,11 @@ const Translate = () => {
     const [ showList, setShowList ] = useState()
     const [results, setResults] = useState()
     const { getLanguages, languages } = useLanguagesListHelper()
-    const { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage ,languageArrowList, changeLanguage, whatNameClass, check, textToTranslate} = useTranslateHelper(languages, showList, setShowList,results,setResults)
+    const { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage ,languageArrowList, changeLanguage, whatNameClass, check, textToTranslate, setTextTranslated, autoGrow, emptyValue} = useTranslateHelper(languages, showList, setShowList,results,setResults)
     const languagesState = useSelector(state => state.changeLanguageReducer)
     const dispatch = useDispatch()
-    console.log("hola2",languagesState.extra)
+    
+
     return (
         <article className="body-translate-container translate">
             <header className="translate-header">
@@ -39,12 +40,11 @@ const Translate = () => {
             {(languages || showList) && <LanguageList target={languagesState.target} languages={languages} showList={showList} />}
             <body className={results ? "translate-body inactive" : "translate-body"} id="translate-body-id">
                 <div className="translate__text-to-translate">
-                    <textarea className="translate__textarea" type="text" autoFocus onChange={(e)=>translateText(e.target.value)} value={textToTranslate}></textarea>
-                    {textToTranslate && <div className="translate__fa-times" onClick={()=> setTextToTranslate("")}><i class="fas fa-times"></i></div>}
-                    
+                    <textarea className="translate__textarea" type="text" autoFocus onChange={(e)=>{translateText(e.target.value);autoGrow(e.target)}} value={textToTranslate} id="translateText-textarea"></textarea>
+                    {textToTranslate && <div className="translate__fa-times" onClick={()=> {emptyValue(); setTextTranslated("Translation")}}><i class="fas fa-times"></i></div>} 
                 </div>
-                <div className={textTranslated ? "translate__traduction active" : "translate__traduction"}>
-                    <p className="translate__text-result">{textTranslated === 'Traduccion' ? "" : textTranslated}</p>
+                <div className={textTranslated === 'Translation' ? "translate__traduction" : "translate__traduction active"}>
+                    <p className="translate__text-result">{textTranslated}</p>
                 </div>
             </body>
         </article>

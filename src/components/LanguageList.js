@@ -9,7 +9,6 @@ const dispatch = useDispatch()
         const filterCosa = languagehistorySelector.filter((cosa) => {
             return cosa.language === item.language
         })
-        console.log("fitro",filterCosa)
         if (target.language === item.language){
             return className + "--target"
         } else if (filterCosa.length >=1){

@@ -146,7 +146,7 @@
     .translate-body{
         display: flex;
         border-top: 1px solid rgba(0,0,0,0.12);
-        height: 172px;
+        min-height: 172px;
         width: auto;
         margin: 0px;
         padding: 0px;
@@ -163,7 +163,6 @@
             justify-content: center;
             .translate__textarea{
                 font-size: 24px;
-                color: #3c4043;
                 height: 87%;
                 width: 95%;
                 padding: 0px;
@@ -174,6 +173,10 @@
                 border: none;
                 margin-top: 2px;
                 border-bottom-left-radius: 8px;
+                overflow: hidden;
+                min-height: 50px;
+                color: #3c4043;
+                font-family: "Kumbh Sans";
                 &:focus{
                     outline: none;
                 }
@@ -186,7 +189,7 @@
                 width: 48px;
                 font-size: 18px;
                 margin-top: 10px;
-                margin-right: 20px;
+                margin-right: 10px;
                 border-radius: 200px;
                 color: #5f6368;
                 cursor: pointer;
@@ -204,6 +207,7 @@
                 font-size: 24px;
                 color: #5f6368;
                 margin: 0px;
+                word-break: break-all;
             }
         }
     }
@@ -263,33 +267,35 @@
         }
         .translate-body{
             flex-direction: column;
-            height: 100%;
+            height: auto;
             border-radius: 0;
-            border: none;
+            // border: none;
             .translate__text-to-translate{
                 width: 99%;
-                height: 150px;
+                min-height: 150px;
                 border-radius: 0;
                 border: none;
                 .translate__textarea{
                     border-radius: 0;
                     border: none;
                     width: 100%;
-                    padding-right: 20px;
-                    padding-left: 20px;
+                    height: auto;
+                    padding:20px;
                     box-sizing: border-box;
+                    
                 }
             }
             .translate__traduction{
                 display: none;
                 width: auto;
-                height: 150px;
                 margin-top: 10px;
                 &.active {
                     display: flex;
                     background-color: #1a73e8;
                 }
                 .translate__text-result{
+                    color: white;
+                    word-break: break-all;
                 }
             }
         }
