@@ -1,6 +1,6 @@
 Google-Translate-clone
 =============
-Traductor con la utlización de Google Translate API por Google Cloud. ([Link](https://es.pornhub.com/))
+Traductor con la utlización de Google Translate API por Google Cloud. ([Link](https://rapidapi.com/googlecloud/api/google-translate1/))
 
 <br />
 
