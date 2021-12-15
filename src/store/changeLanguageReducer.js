@@ -9,13 +9,13 @@ const languages = {
 const changeLanguageReducer = (state = languages, {type, payload}) => {
     let languagesCopy
     switch (type) {
-        case '@changeLanguages':
-            languagesCopy = Object.assign({}, state)
-            const actualTarget = languagesCopy.target
-            const actualSource = languagesCopy.source
-            languagesCopy.source = actualTarget
-            languagesCopy.target = actualSource
-            return languagesCopy
+        // case '@changeLanguages':
+        //     languagesCopy = Object.assign({}, state)
+        //     const actualTarget = languagesCopy.target
+        //     const actualSource = languagesCopy.source
+        //     languagesCopy.source = actualTarget
+        //     languagesCopy.target = actualSource
+        //     return languagesCopy
         case "@setLanguage":
             console.log("hola", payload)
             languagesCopy = Object.assign({}, state)
@@ -32,6 +32,13 @@ const changeLanguageReducer = (state = languages, {type, payload}) => {
             languagesCopy.target = payload
             languagesCopy.extra = state.target
             return languagesCopy
+        case "@changeLanguages":
+            console.log("type",payload)
+            languagesCopy = Object.assign({}, state)
+            if (payload.type === "source") languagesCopy.source = payload.language
+            else languagesCopy.target = payload.language
+            return languagesCopy
+
             default:
             return state
     }

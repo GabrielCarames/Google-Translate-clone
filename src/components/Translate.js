@@ -20,8 +20,8 @@ const Translate = () => {
                 <div className="translate__left-navbar">
                     <ul className="translate-list">
                         <li className={whatNameClass("extra")} onClick={() => {dispatch({type:"@detectLanguage"})}}>DETECT LANGUAGE</li>
-                        <li className={whatNameClass("target")} onClick={() => check("source")}><p className="list__text">{languagesState.source.name}</p></li>
-                        <li className={whatNameClass("source")} onClick={() => check()}><p className="list__text" >{languagesState.target.name}</p></li>
+                        <li className={whatNameClass("target")} onClick={() => {dispatch({type:"@changeLanguages", payload: {"type" : "target" , "language" : languagesState.target } }); check("source")}}><p className="list__text">{languagesState.source.name}</p></li>
+                        <li className={whatNameClass("source")} onClick={() => {dispatch({type:"@changeLanguages", payload: {"type" : "source" , "language" : languagesState.source } }); check() }}><p className="list__text" >{languagesState.target.name}</p></li>
                         <li className={whatNameClass("extra")} onClick={() =>{console.log(languagesState.extra);dispatch({type:"@changeExtra", payload: languagesState.extra });check()}}><p className="list__text" >{languagesState.extra.name}</p></li>
                         <li className="list__arrow" onClick={() => languageArrowList("source")}><i className="fas fa-chevron-down"></i></li>
                     </ul>
