@@ -13,7 +13,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border-bottom: 3px solid #1a73e8;
+            border-bottom: 3px solid #ffffff;
             margin-top: 0;
             height: 100%;
             padding: 0px 20px 0px 15px;
@@ -23,13 +23,10 @@
                 background-color: #1a73e80a;
             }
             &.active{
-                border-bottom: 3px solid #ffffff;
-                .list__text{
-                    color: black;
-                }
+                border-bottom: 3px solid #1a73e8;
+                color: #1a73e8;
             }
             .list__text{
-                color: #1a73e8;
                 margin: 0px;
                 text-transform: uppercase;
             } 
@@ -68,9 +65,9 @@
                 background-color: #3c404310;
             }
             &.active{
-                border-bottom: 3px solid #ffffff;
+                border-bottom: 3px solid #1a73e8;
                 .list__text{
-                    color: black;
+                    color: #1a73e8;
                 } 
             }
             .list__text{

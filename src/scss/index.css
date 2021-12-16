@@ -235,7 +235,7 @@ body .app-container {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 3px solid #1a73e8;
+  border-bottom: 3px solid #ffffff;
   margin-top: 0;
   height: 100%;
   padding: 0px 20px 0px 15px;
@@ -249,15 +249,11 @@ body .app-container {
 }
 
 .body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--target.active {
-  border-bottom: 3px solid #ffffff;
-}
-
-.body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--target.active .list__text {
-  color: black;
+  border-bottom: 3px solid #1a73e8;
+  color: #1a73e8;
 }
 
 .body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--target .list__text {
-  color: #1a73e8;
   margin: 0px;
   text-transform: uppercase;
 }
@@ -316,11 +312,11 @@ body .app-container {
 }
 
 .body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--extra.active {
-  border-bottom: 3px solid #ffffff;
+  border-bottom: 3px solid #1a73e8;
 }
 
 .body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--extra.active .list__text {
-  color: black;
+  color: #1a73e8;
 }
 
 .body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--extra .list__text {
@@ -407,7 +403,7 @@ body .app-container {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 3px solid #1a73e8;
+  border-bottom: 3px solid #ffffff;
   margin-top: 0;
   height: 100%;
   padding: 0px 20px 0px 15px;
@@ -421,15 +417,11 @@ body .app-container {
 }
 
 .body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--target.active {
-  border-bottom: 3px solid #ffffff;
-}
-
-.body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--target.active .list__text {
-  color: black;
+  border-bottom: 3px solid #1a73e8;
+  color: #1a73e8;
 }
 
 .body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--target .list__text {
-  color: #1a73e8;
   margin: 0px;
   text-transform: uppercase;
 }
@@ -488,11 +480,11 @@ body .app-container {
 }
 
 .body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--extra.active {
-  border-bottom: 3px solid #ffffff;
+  border-bottom: 3px solid #1a73e8;
 }
 
 .body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--extra.active .list__text {
-  color: black;
+  color: #1a73e8;
 }
 
 .body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--extra .list__text {

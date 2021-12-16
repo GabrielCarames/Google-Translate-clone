@@ -9,29 +9,28 @@ const Translate = () => {
     const [ showList, setShowList ] = useState()
     const [results, setResults] = useState()
     const { getLanguages, languages } = useLanguagesListHelper()
-    const { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage ,languageArrowList, changeLanguage, whatNameClass, check, textToTranslate, setTextTranslated, autoGrow, emptyValue} = useTranslateHelper(languages, showList, setShowList,results,setResults)
+    const { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage ,languageArrowList, changeLanguage, whatNameClass, check, textToTranslate, setTextTranslated, autoGrow, emptyValue, checkActivatedLanguage} = useTranslateHelper(languages, showList, setShowList,results,setResults)
     const languagesState = useSelector(state => state.changeLanguageReducer)
     const dispatch = useDispatch()
-    
-
+    // {type:"@changeLanguages", payload: {type: "source", language: languagesState.source}
     return (
         <article className="body-translate-container translate">
             <header className="translate-header">
                 <div className="translate__left-navbar">
                     <ul className="translate-list">
-                        <li className={whatNameClass("extra")} onClick={() => {dispatch({type:"@detectLanguage"})}}>DETECT LANGUAGE</li>
-                        <li className={whatNameClass("target")} onClick={() => {dispatch({type:"@changeLanguages", payload: {"type" : "target" , "language" : languagesState.target } }); check("source")}}><p className="list__text">{languagesState.source.name}</p></li>
-                        <li className={whatNameClass("source")} onClick={() => {dispatch({type:"@changeLanguages", payload: {"type" : "source" , "language" : languagesState.source } }); check() }}><p className="list__text" >{languagesState.target.name}</p></li>
-                        <li className={whatNameClass("extra")} onClick={() =>{console.log(languagesState.extra);dispatch({type:"@changeExtra", payload: languagesState.extra });check()}}><p className="list__text" >{languagesState.extra.name}</p></li>
+                        {/* <li className={whatNameClass("extra")} onClick={() => {dispatch({type:"@detectLanguage"})}}>DETECT LANGUAGE</li> */}
+                        <li className={checkActivatedLanguage("source", "left")} onClick={() => {dispatch({type:"@invertLanguages"}); check() }}><p className="list__text" >{languagesState.source.data.name}</p></li>
+                        <li className={checkActivatedLanguage("target", "left")} onClick={() => {dispatch({type:"@invertLanguages"}); check("source");}}><p className="list__text">{languagesState.target.data.name}</p></li>
+                        <li className={checkActivatedLanguage("extra", "left")} onClick={() =>{dispatch({type:"@changeExtra", payload: {extra: languagesState.extra.data, type: "left"} });check()}}><p className="list__text" >{languagesState.extra.data.name}</p></li>
                         <li className="list__arrow" onClick={() => languageArrowList("source")}><i className="fas fa-chevron-down"></i></li>
                     </ul>
                 </div>
                 <div className={"list__change-language"} onClick={() => {changeLanguage(); check()}}><i className="fas fa-exchange-alt"></i></div>
                 <div className="translate__right-navbar">
                     <ul className="translate-list">
-                        <li className={whatNameClass("target")} onClick={() => check("target")}><p className="list__text">{languagesState.target.name}</p></li>
-                        <li className={whatNameClass("source")} onClick={() => check()}><p className="list__text" >{languagesState.source.name}</p></li>
-                        <li className={whatNameClass("extra")} onClick={() => {dispatch({type:"@changeExtra", payload: languagesState.extra });check()}}><p className="list__text" >{languagesState.extra.name}</p></li>
+                        <li className={checkActivatedLanguage("target", "right")} onClick={() => check()}><p className="list__text" >{languagesState.target.data.name}</p></li>
+                        <li className={checkActivatedLanguage("source", "right")} onClick={() => check("target")}><p className="list__text">{languagesState.source.data.name}</p></li>
+                        <li className={checkActivatedLanguage("extra", "right")} onClick={() => {dispatch({type:"@changeExtra", payload: {extra: languagesState.extra.data, type: "right"} });check()}}><p className="list__text" >{languagesState.extra.data.name}</p></li>
                         <li className="list__arrow" onClick={() => languageArrowList("target")}><i className="fas fa-chevron-down"></i></li>
                     </ul>
                 </div>

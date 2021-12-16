@@ -49,7 +49,7 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
         if(window.innerWidth >= 320 && window.innerWidth <= 1200 ){
             languageArrowList(type)
         }else {
-            changeLanguage()
+            // changeLanguage()
             if (!state){
                 setState(true)
             }else{
@@ -71,6 +71,20 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
         default:
           break
       }
+    }
+
+    const checkActivatedLanguage = (className, type) => {
+        console.log("hoasldasdasd", languagesState.source.active)
+        switch (type) {
+            case "left":
+                if(languagesState[className].active === "left") return `list__item--${className} active`
+                else return `list__item--${className}`
+            case "right":
+                if(languagesState[className].active === "right") return `list__item--${className} active`
+                else return `list__item--${className}`
+            default:
+                break;
+        }
     }
 
     const wholanguage = (type) =>{
@@ -105,7 +119,7 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
         textArea.style.height = "150px";
     }
 
-    return { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage, languageArrowList, changeLanguage, whatNameClass, check, textToTranslate, setTextTranslated, autoGrow, emptyValue }
+    return { getTraduction, setTextToTranslate, translateText, textTranslated, wholanguage, languageArrowList, changeLanguage, whatNameClass, check, textToTranslate, setTextTranslated, autoGrow, emptyValue, checkActivatedLanguage }
 }
 
 
