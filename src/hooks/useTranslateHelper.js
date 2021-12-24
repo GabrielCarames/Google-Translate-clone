@@ -12,13 +12,13 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
     const [ textTranslated, setTextTranslated] = useState('Translation')
 
     const [ languageInUse, setLanguageInUse ] = useState({target: languagesState.target.data, source: languagesState.source.data })
+    console.log("uso hnijodeptua", languageInUse)
 
     const dispatch = useDispatch()
 
     // const [state, setState] = useState(false)
     
     const getTraduction = () => {
-        console.log("uso indefinido", languageInUse)
         let data
         if(languagesState.detect) data = qs.stringify({q: textToTranslate})
         else data = qs.stringify({q: textToTranslate, target: languageInUse.target.language, source: languageInUse.source.language})
@@ -77,8 +77,7 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
     //   }
     // }
 
-    const checkActivatedLanguage = (className,type,side) => {
-        console.log("sasasa",className,languageInUse)
+    const checkActivatedLanguage = (className,type) => {
         // console.log("hoasldasdasd", languagesState.source.active)
         // switch (type) {
         //     case "left":
@@ -97,21 +96,10 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
         //     return `list__item--${type} active`
         // }
         // return `list__item--${type}`
-        switch (side) {
-            case "left":
-                if(languageInUse.source.name === className){
-                    return `list__item--${type}`
-                }
-                if(languageInUse[type] && className === languageInUse[type].name){
-                    return `list__item--${type} active`
-                }
-                return `list__item--${type}`
-            // case "right":
-
-            default:
-                return `list__item--${type}`
-                
+        if(languageInUse[type] && className === languageInUse[type].name){
+            return `list__item--${type} active`
         }
+        return `list__item--${type}`
     }
 
     // const wholanguage = (type) =>{
