@@ -101,6 +101,31 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
         }
         return `list__item--${type}`
     }
+    const invertLanguage = (languageToChange, type) =>{
+        switch (type) {
+            case "right":
+                let actualSource = languageInUse.source
+                console.log(languageToChange.language,languageInUse.target)
+                if(languageToChange.language === languageInUse.target.language){
+                    setLanguageInUse({...languageInUse, ...{ source: languageToChange}, ...{target: actualSource}})
+                    console.log(languageToChange.language,languageInUse.target.language, actualSource)
+                }else{
+                    setLanguageInUse({...languageInUse, ...{ source: languageToChange}})
+                }
+                break;
+            case "left":
+                let actualTarget = languageInUse.target
+                if (languageToChange.language === languageInUse.source.language){
+                    setLanguageInUse({...languageInUse, ...{ source: actualTarget}, ...{target: languageToChange}})
+                }else{
+                    setLanguageInUse({...languageInUse, ...{ target: languageToChange}})
+                }
+                break;
+            default:
+                break;
+        }
+
+    }
 
     // const wholanguage = (type) =>{
     //   let result
@@ -134,7 +159,7 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
         textArea.style.height = "150px";
     }
 
-    return { getTraduction, setTextToTranslate, translateText, textTranslated, languageArrowList, changeLanguage, check, textToTranslate, setTextTranslated, autoGrow, emptyValue, checkActivatedLanguage, setLanguageInUse, languageInUse }
+    return { getTraduction, setTextToTranslate, translateText, textTranslated, languageArrowList, changeLanguage, check, textToTranslate, setTextTranslated, autoGrow, emptyValue, checkActivatedLanguage, invertLanguage }
 }
 
 

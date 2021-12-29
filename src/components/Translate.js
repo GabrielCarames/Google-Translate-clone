@@ -9,7 +9,7 @@ const Translate = () => {
     const [ showList, setShowList ] = useState()
     const [results, setResults] = useState()
     const { getLanguages, languages } = useLanguagesListHelper()
-    const { translateText, textTranslated ,languageArrowList, changeLanguage, check, textToTranslate, setTextTranslated, autoGrow, emptyValue, checkActivatedLanguage, setLanguageInUse, languageInUse} = useTranslateHelper(languages, showList, setShowList,results,setResults)
+    const { translateText, textTranslated ,languageArrowList, changeLanguage, check, textToTranslate, setTextTranslated, autoGrow, emptyValue, checkActivatedLanguage, invertLanguage} = useTranslateHelper(languages, showList, setShowList,results,setResults)
     const languagesState = useSelector(state => state.changeLanguageReducer)
     const dispatch = useDispatch()
     // {type:"@changeLanguages", payload: {type: "source", language: languagesState.source}
@@ -19,18 +19,18 @@ const Translate = () => {
                 <div className="translate__left-navbar">
                     <ul className="translate-list">
                         {/* <li className={whatNameClass("extra")} onClick={() => {dispatch({type:"@detectLanguage"})}}>DETECT LANGUAGE</li> */}
-                        <li className={checkActivatedLanguage(languagesState.source.data.name,"source")} onClick={() => { check(); setLanguageInUse({...languageInUse, ...{ source: languagesState.source.data}, ...{target: languagesState.target.data}}) }}><p className="list__text" >{languagesState.source.data.name}</p></li>
-                        <li className={checkActivatedLanguage(languagesState.target.data.name,"source")} onClick={() => { check("source"); setLanguageInUse({...languageInUse, ...{ source: languagesState.target.data}, ...{target: languagesState.source.data}})}}><p className="list__text">{languagesState.target.data.name}</p></li>
-                        <li className={checkActivatedLanguage(languagesState.extra.data.name,"source")} onClick={() =>{ check(); setLanguageInUse({...languageInUse, ...{ source: languagesState.extra.data}, ...{target: languagesState.target.data}})}}><p className="list__text" >{languagesState.extra.data.name}</p></li>
+                        <li className={checkActivatedLanguage(languagesState.source.data.name,"source")} onClick={() => { check(); invertLanguage(languagesState.source.data,"right") }}><p className="list__text" >{languagesState.source.data.name}</p></li>
+                        <li className={checkActivatedLanguage(languagesState.target.data.name,"source")} onClick={() => { check("source"); invertLanguage(languagesState.target.data,"right")}}><p className="list__text">{languagesState.target.data.name}</p></li>
+                        <li className={checkActivatedLanguage(languagesState.extra.data.name,"source")} onClick={() =>{ check();invertLanguage(languagesState.extra.data,"right") }}><p className="list__text" >{languagesState.extra.data.name}</p></li>
                         <li className="list__arrow" onClick={() => languageArrowList("source")}><i className="fas fa-chevron-down"></i></li>
                     </ul>
                 </div>
                 <div className={"list__change-language"} onClick={() => {changeLanguage(); check()}}><i className="fas fa-exchange-alt"></i></div>
                 <div className="translate__right-navbar">
                     <ul className="translate-list">
-                        <li className={checkActivatedLanguage(languagesState.source.data.name,"target")} onClick={() => {check("target"); setLanguageInUse({...languageInUse, ...{ source: languagesState.source.data}, ...{ target: languagesState.target.data}})}}><p className="list__text">{languagesState.source.data.name}</p></li>
-                        <li className={checkActivatedLanguage(languagesState.target.data.name,"target")} onClick={() =>{ check(); setLanguageInUse({...languageInUse, ...{ source: languagesState.target.data}, ...{ target: languagesState.source.data}})}}><p className="list__text" >{languagesState.target.data.name}</p></li>
-                        <li className={checkActivatedLanguage(languagesState.extra.data.name,"target")} onClick={() => {check(); setLanguageInUse({...languageInUse, ...{ source: languagesState.target.data}, ...{ target: languagesState.extra.data}})}}><p className="list__text" >{languagesState.extra.data.name}</p></li>
+                        <li className={checkActivatedLanguage(languagesState.source.data.name,"target")} onClick={() => {check("target"); invertLanguage(languagesState.source.data,"left")}}><p className="list__text">{languagesState.source.data.name}</p></li>
+                        <li className={checkActivatedLanguage(languagesState.target.data.name,"target")} onClick={() =>{ check(); invertLanguage(languagesState.target.data,"left")}}><p className="list__text" >{languagesState.target.data.name}</p></li>
+                        <li className={checkActivatedLanguage(languagesState.extra.data.name,"target")} onClick={() => {check(); invertLanguage(languagesState.extra.data,"left")}}><p className="list__text" >{languagesState.extra.data.name}</p></li>
                         <li className="list__arrow" onClick={() => languageArrowList("target")}><i className="fas fa-chevron-down"></i></li>
                     </ul>
                 </div>
