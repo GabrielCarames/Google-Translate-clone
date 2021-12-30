@@ -159,7 +159,7 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
         textArea.style.height = "150px";
     }
 
-    return { getTraduction, setTextToTranslate, translateText, textTranslated, languageArrowList, changeLanguage, check, textToTranslate, setTextTranslated, autoGrow, emptyValue, checkActivatedLanguage, invertLanguage }
+    return { translateText, textTranslated ,languageArrowList, changeLanguage, check, textToTranslate, setTextTranslated, autoGrow, emptyValue, checkActivatedLanguage, invertLanguage, languageInUse, setLanguageInUse }
 }
 
 

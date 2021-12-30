@@ -15,10 +15,9 @@ const changeLanguageReducer = (state = languages, {type, payload}) => {
     const actualSourceData = languagesCopy.source.data 
     const actualExtraData = languagesCopy.extra.data
     switch (type) {
-        // case "@setLanguage":
-        //     if (payload.showList === "source") languagesCopy.source.data = payload.item
-        //     else languagesCopy.target.data = payload.item
-        //     return languagesCopy
+        case "@setExtraLanguage":
+            languagesCopy.extra.data = payload
+            return languagesCopy
         // case "@detectLanguage":
         //     languagesCopy.detect = true
         //     return languagesCopy
