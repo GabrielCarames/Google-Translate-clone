@@ -19,14 +19,16 @@ const dispatch = useDispatch()
     
     const selectLanguage = (item) => {
         console.log("item", item, showList)
-        if(showList === "target") {
-            // setLanguageInUse({...languageInUse, ...{ target: item}})
-            dispatch({type:"@setExtraLanguage", payload: item })
-        }
-        if(showList === "source") {
-            // setLanguageInUse({...languageInUse, ...{ source: item}})
-            dispatch({type:"@setExtraLanguage", payload: item })
-        }
+        if(window.innerWidth >= 320 && window.innerWidth <= 1200) {
+            if(showList === "target") {
+                dispatch({type:"@setResponsiveTarget", payload: item })
+                setLanguageInUse({...languageInUse, ...{ target: item}})
+            }
+            if(showList === "source" ) {
+                dispatch({type:"@setResponsiveSource", payload: item })
+                setLanguageInUse({...languageInUse, ...{ source: item}})
+            }
+        } else dispatch({type:"@setExtraLanguage", payload: item })
     }
         
     const languagehistorySelector = useSelector(state => state.languageHistoryReducer)

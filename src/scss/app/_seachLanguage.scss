@@ -2,8 +2,10 @@
     display: none;
     height: 57px;
     padding: 5px;
-    border-left: 1px solid rgba(0, 0, 0, 0.12);
-    border-right: 1px solid rgba(0, 0, 0, 0.12);
+    // border-left: 1px solid rgba(0, 0, 0, 0.12);
+    // border-right: 1px solid rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: none;
     .search-language-icon {
         display: flex;
         justify-content: center;

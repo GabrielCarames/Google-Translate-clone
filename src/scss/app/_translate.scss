@@ -224,13 +224,16 @@
                     justify-content: center;
                     .list__item--source {
                         display: none;
+                        &:nth-child(1) {
+                            display: flex;
+                        }
                     }
-                    .list__item--target {
-                        border: none;
-                    }
-                    .list__item--extra{
-                        display: none
-                    }
+                    // .list__item--target {
+                    //     border: none;
+                    // }
+                    // .list__item--extra{
+                    //     display: none
+                    // }
                     .list__arrow {
                         display: none
                     }
@@ -242,15 +245,18 @@
                 .translate-list{
                     margin-left: 0;
                     justify-content: center;
-                    .list__item--source {
-                        display: none;
-                    }
+                    // .list__item--source {
+                    //     display: none;
+                    // }
                     .list__item--target {
-                        border: none;
+                        display: none;
+                        &:nth-child(1) {
+                            display: flex;
+                        }
                     }
-                    .list__item--extra{
-                        display: none
-                    }
+                    // .list__item--extra{
+                    //     display: none
+                    // }
                     .list__arrow {
                         display: none
                     }

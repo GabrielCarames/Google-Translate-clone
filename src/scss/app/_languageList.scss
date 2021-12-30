@@ -1,6 +1,6 @@
 .language-list-container{
     z-index: 300;
-    border: 1px solid rgba(0,0,0,0.12);
+    // border: 1px solid rgba(0,0,0,0.12);
     padding: 0px;
     margin: 0px;
     display: none;
@@ -16,7 +16,8 @@
         width: 1279px;
         position: absolute;
         background-color: white;
-        border: 1px solid rgba(0,0,0,0.12);
+        // border: 1px solid rgba(0,0,0,0.12);
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
         padding: 5px 0;
