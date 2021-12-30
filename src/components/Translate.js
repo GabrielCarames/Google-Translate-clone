@@ -23,7 +23,6 @@ const Translate = () => {
             <header className="translate-header">
                 <div className="translate__left-navbar">
                     <ul className="translate-list">
-                        {/* <li className={whatNameClass("extra")} onClick={() => {dispatch({type:"@detectLanguage"})}}>DETECT LANGUAGE</li> */}
                         <li className={checkActivatedLanguage(languagesState.source.data.name,"source")} onClick={() => { check(); invertLanguage(languagesState.source.data,"right") }}><p className="list__text" >{languagesState.source.data.name}</p></li>
                         <li className={checkActivatedLanguage(languagesState.target.data.name,"source")} onClick={() => { check("source"); invertLanguage(languagesState.target.data,"right")}}><p className="list__text">{languagesState.target.data.name}</p></li>
                         <li className={checkActivatedLanguage(languagesState.extra.data.name,"source")} onClick={() =>{ check();invertLanguage(languagesState.extra.data,"right") }}><p className="list__text" >{languagesState.extra.data.name}</p></li>
