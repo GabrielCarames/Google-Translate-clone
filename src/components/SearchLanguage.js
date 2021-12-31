@@ -3,7 +3,7 @@ import useSearchLanguageHelper from "../hooks/useSearchLanguageHelper"
 
 
 const SearchLanguage = ({languages, showList, setShowList, results, setResults}) => {
-const {searchLanguage, backToLanguage, backToLanguagesList}=useSearchLanguageHelper(languages, setShowList, results, setResults)
+const {searchLanguage, backToLanguage, backToLanguagesList, textToSearch, emptyValue} = useSearchLanguageHelper(languages, setShowList, results, setResults)
 const dispatch = useDispatch()
 
     return (
@@ -12,7 +12,8 @@ const dispatch = useDispatch()
                 <button className="search-language-icon" onClick={() => {backToLanguagesList()}}>
                     <i className="fas fa-arrow-left"></i>
                 </button>
-                <input type="text" className="search-language-container__input" placeholder="Search languages" onChange={(e)=>searchLanguage(e.target.value)}/>
+                <input type="text" className="search-language-container__input" value={textToSearch} placeholder="Search languages" onChange={(e)=>searchLanguage(e.target.value)}/>
+                {results && <div className="translate__fa-times" onClick={()=> emptyValue()}><i className="fas fa-times"></i></div>} 
             </div>
             <div className={results ? "language-results active" : "language-results"} id="language-result-id">
                 <ul className="language-results-list list">

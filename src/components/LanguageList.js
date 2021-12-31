@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 
@@ -32,6 +33,17 @@ const dispatch = useDispatch()
     }
         
     const languagehistorySelector = useSelector(state => state.languageHistoryReducer)
+
+    useEffect(() => {
+        if(showList){
+            const translateId = document.getElementById("translate-body-id")
+                translateId.className = "translate-body inactive"
+        } else {
+            const translateId = document.getElementById("translate-body-id")
+                translateId.className = "translate-body"
+        }
+    }, [showList])
+
     return(
         <div className = {showList ? "language-list-container active" : "language-list-container"} id="language-list-id">
             <ul className="language-list">
