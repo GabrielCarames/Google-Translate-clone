@@ -40,7 +40,13 @@ export function useSearchLanguageHelper (languages, setShowList, results, setRes
         } else setShowList(false)
     }
 
-    return {searchLanguage, backToLanguage, backToLanguagesList}
+    const emptyValue = () => {
+        setTextToSearch("")
+        setResults(null)
+        setShowList(true)
+    }
+
+    return {searchLanguage, backToLanguage, backToLanguagesList, textToSearch, emptyValue}
 }
 
 export default useSearchLanguageHelper

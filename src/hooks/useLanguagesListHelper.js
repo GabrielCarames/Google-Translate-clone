@@ -470,14 +470,14 @@ export function useLanguagesListHelper (target) {
         getLanguages()
       }, [])
       
-    const getLanguages = () => {
+      const getLanguages = () => {
         // axios.request(languagesOptions).then(function (response) {
-        //     console.log("soyhomosexual", response.data.data.languages);
-        //     setLanguages(response.data.data.languages)
-        // }).catch(function (error) {
-        //     console.error(error);
-        // });
-        setLanguages(objetoDeIdiomasParaNoGastarTicketsYNoCagarXd.data.languages)
+          //     console.log("soyhomosexual", response.data.data.languages);
+          //     setLanguages(response.data.data.languages)
+          // }).catch(function (error) {
+            //     console.error(error);
+            // });
+            setLanguages(objetoDeIdiomasParaNoGastarTicketsYNoCagarXd.data.languages)
         console.log("cosa", objetoDeIdiomasParaNoGastarTicketsYNoCagarXd.data.languages)
       }
 
