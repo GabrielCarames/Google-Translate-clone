@@ -7,12 +7,6 @@ const languages = {
 
 const changeLanguageReducer = (state = languages, {type, payload}) => {
     let languagesCopy = Object.assign({}, state)
-    let actualTarget = languagesCopy.target.active
-    let actualSource = languagesCopy.source.active
-    let actualExtra = languagesCopy.extra.active
-    let actualTargetData = languagesCopy.target.data
-    let actualSourceData = languagesCopy.source.data 
-    let actualExtraData = languagesCopy.extra.data
     switch (type) {
         case "@setExtraLanguage":
             languagesCopy.extra.data = payload
@@ -23,46 +17,6 @@ const changeLanguageReducer = (state = languages, {type, payload}) => {
         case "@setResponsiveSource" :
             console.log("paloyad", payload)
             languagesCopy.source.data = payload
-            return languagesCopy
-        case "@changeExtra":
-            // console.log(payload)
-            // languagesCopy.source.data = payload
-            // languagesCopy.extra.data = state.source.data
-            // if(payload.type === "left") {
-            //     languagesCopy.source.data = state.extra.data
-            // }
-            // if(payload.type === "right") {
-            //     languagesCopy.target.active = false
-            //     languagesCopy.extra.active = "right"
-            // }
-            languagesCopy.extra.active = "left"
-            languagesCopy.target.active = actualExtra
-            languagesCopy.source.active = false
-            languagesCopy.extra.data = actualTargetData
-            languagesCopy.target.data = actualExtraData
-            return languagesCopy
-        // case "@changeLanguages":
-        //     if (payload.type === "source") languagesCopy.target.data = payload.language
-        //     else languagesCopy.source.data = payload.language
-        //     return languagesCopy
-        case '@invertLanguages':
-                console.log("payload",payload)
-                if (payload === languagesCopy.target.data || payload === languagesCopy.source.data){
-                    languagesCopy.extra.active = false
-                    languagesCopy.target.active = actualSource
-                    languagesCopy.source.active = actualTarget
-                    languagesCopy.source.data = actualTargetData
-                    languagesCopy.target.data = actualSourceData
-                }else if(payload === languagesCopy.extra.data){
-                    languagesCopy.extra.active = "left"
-                    languagesCopy.target.active = actualExtra
-                    languagesCopy.source.active = false
-                    languagesCopy.extra.data = actualTargetData
-                    languagesCopy.target.data = actualExtraData
-                }
-                
-                
-                
             return languagesCopy
         default:
             return state

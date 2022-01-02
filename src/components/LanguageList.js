@@ -29,7 +29,17 @@ const dispatch = useDispatch()
                 dispatch({type:"@setResponsiveSource", payload: item })
                 setLanguageInUse({...languageInUse, ...{ source: item}})
             }
-        } else dispatch({type:"@setExtraLanguage", payload: item })
+        } else {
+            if (showList === "target"){
+                dispatch({type:"@setExtraLanguage", payload: item })
+                setLanguageInUse({...languageInUse, ...{ target: item}})
+            }
+            if (showList === "source"){
+                dispatch({type:"@setExtraLanguage", payload: item })
+                setLanguageInUse({...languageInUse, ...{ source: item}})    
+            }
+        }
+            
     }
         
     const languagehistorySelector = useSelector(state => state.languageHistoryReducer)
