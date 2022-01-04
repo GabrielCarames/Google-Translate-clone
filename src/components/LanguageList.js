@@ -10,14 +10,28 @@ const dispatch = useDispatch()
         const languages = languagehistorySelector.filter((languageItem) => {
             return languageItem.language === item.language
         })
-        if (source.language === item.language){
-            return className + "--target"
-        } else if (languages.length >= 1) {
-            return className + "--history"
-        }else
-            return className
+        switch (showList) {
+            case "source":
+                if (languageInUse.source.language === item.language){
+                    return className + "--target"
+                }else if (languages.length >= 1) {
+                    return className + "--history"
+                }else{
+                    return className
+                }
+            case "target":
+                if (languageInUse.target.language === item.language){
+                    return className + "--target"
+                }else if (languages.length >= 1) {
+                    return className + "--history"
+                }else{
+                    return className
+                }
+            default:
+                break;
+        
         }
-    
+    }
     const selectLanguage = (item) => {
         console.log("item", item, showList)
         if(window.innerWidth >= 320 && window.innerWidth <= 1200) {
@@ -30,13 +44,15 @@ const dispatch = useDispatch()
                 setLanguageInUse({...languageInUse, ...{ source: item}})
             }
         } else {
+            let actualTarget = languageInUse.target
+            let actualSource = languageInUse.source
             if (showList === "target"){
                 dispatch({type:"@setExtraLanguage", payload: item })
-                setLanguageInUse({...languageInUse, ...{ target: item}})
+                setLanguageInUse({...languageInUse, ...{ target: item}, ...{target: actualTarget }})
             }
             if (showList === "source"){
                 dispatch({type:"@setExtraLanguage", payload: item })
-                setLanguageInUse({...languageInUse, ...{ source: item}})    
+                setLanguageInUse({...languageInUse, ...{ source: item}, ...{target: actualSource }})    
             }
         }
             
