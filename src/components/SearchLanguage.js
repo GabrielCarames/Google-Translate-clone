@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux"
 import useSearchLanguageHelper from "../hooks/useSearchLanguageHelper"
 
 const SearchLanguage = ({languageList, showList, setShowList, results, setResults, languageInUse, setLanguageInUse}) => {
-    const {setTextToSearch, backToLanguage, backToLanguagesList, textToSearch, emptyValue, selectLanguage} = useSearchLanguageHelper(languageList, setShowList, results, setResults, showList, languageInUse, setLanguageInUse)
+    const {setTextToSearch, backToLanguage, backToLanguagesList, textToSearch, emptyValue, selectSearchLanguage} = useSearchLanguageHelper(languageList, setShowList, results, setResults, showList, languageInUse, setLanguageInUse)
     const dispatch = useDispatch()
     
     return (
@@ -19,7 +19,7 @@ const SearchLanguage = ({languageList, showList, setShowList, results, setResult
                 {
                     results && results.map((result, id) => {
                         return (
-                            <li className="list__item" key={id} onClick={() => {selectLanguage(result);backToLanguage();setResults(undefined);dispatch({type:"@languagesHistory", payload: result})}}>
+                            <li className="list__item" key={id} onClick={() => {selectSearchLanguage(result);backToLanguage();setResults(undefined);dispatch({type:"@languagesHistory", payload: result})}}>
                                 <p className="list__language-name">{result.name}</p>
                             </li>
                         )

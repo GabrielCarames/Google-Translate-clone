@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import useSelectLanguageHelper from "./useSelectLanguageHelper";
 
 export function useLanguagesListHelper (languageInUse, setLanguageInUse, showList) {
+    const {selectLanguage} = useSelectLanguageHelper(languageInUse, setLanguageInUse)
     const languagehistorySelector = useSelector(state => state.languageHistoryReducer)
     const dispatch = useDispatch()
-    
     const languageList = [
         {
         "language": "af",
@@ -470,46 +471,7 @@ export function useLanguagesListHelper (languageInUse, setLanguageInUse, showLis
         }
     }
 
-    const selectLanguage = (item) => {
-        if(window.innerWidth >= 320 && window.innerWidth <= 1200) {
-            setLanguageInUse({...languageInUse, ...{ source: item}})
-            switch (showList) {
-                case "target": dispatch({type:"@setResponsiveTarget", payload: item })
-                    break;
-                case "source": dispatch({type:"@setResponsiveSource", payload: item })
-                    break;
-                default:
-                    break;
-            }
-        } else {
-            let actualTarget = languageInUse.target
-            let actualSource = languageInUse.source
-            switch (showList) {
-                case "target": 
-                    if (languageInUse.source.name === item.name){
-                        dispatch({type:"@setExtraTargetLanguage", payload: item })
-                        setLanguageInUse({...languageInUse, ...{ source: actualTarget }, ...{target: item}})
-                    } else {
-                        dispatch({type:"@setExtraTargetLanguage", payload: item })
-                        setLanguageInUse({...languageInUse, ...{ source: actualSource }, ...{target: item}})
-                    }
-                    break;
-
-                case "source":
-                    if (languageInUse.target.name === item.name){
-                        dispatch({type:"@setExtraSourceLanguage", payload: item })
-                        setLanguageInUse({...languageInUse, ...{ source: item}, ...{target: actualSource }})   
-                    }else{
-                        dispatch({type:"@setExtraSourceLanguage", payload: item })
-                        setLanguageInUse({...languageInUse, ...{ source: item}, ...{target: actualTarget }})  
-                    }
-                    break;
-                    
-                default:
-                    break;
-            }
-        }   
-    }
+    const selectListLanguage = (item) => selectLanguage(showList, item)
         
     useEffect(() => {
         const translateId = document.getElementById("translate-body-id")
@@ -523,7 +485,7 @@ export function useLanguagesListHelper (languageInUse, setLanguageInUse, showLis
         }
     }, [showList])
 
-    return {languageList, checkLanguage, selectLanguage}
+    return {languageList, checkLanguage, selectListLanguage}
 }
 
 export default useLanguagesListHelper
