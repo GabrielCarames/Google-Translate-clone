@@ -11,8 +11,8 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
     
     const [ textTranslated, setTextTranslated] = useState('Translation')
 
-    const [ languageInUse, setLanguageInUse ] = useState({target: languagesState.target.data, source: languagesState.source.data })
-    console.log("uso hnijodeptua", languageInUse)
+    const [ languageInUse, setLanguageInUse ] = useState({target: languagesState.target, source: languagesState.source })
+    console.log("uso hnijodeptua", languagesState)
 
     const dispatch = useDispatch()
 
@@ -47,7 +47,14 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
         let actualSource = languageInUse.source
         let actualTarget = languageInUse.target
         setLanguageInUse({...languageInUse, ...{ source: actualTarget}, ...{target: actualSource}})
-      
+        if ((languagesState.extraSource.name === languageInUse.source.name && languagesState.extraTarget.name === languageInUse.target.name)){
+            dispatch({type: "@invertExtras"})
+        }else if (languageInUse.source.name === languagesState.extraSource.name ){
+            dispatch({type: "@changeLanguage", payload: "source"})
+        }else if(languageInUse.target.name === languagesState.extraTarget.name){
+            dispatch({type: "@changeLanguage", payload: "target"})
+        }
+        
     }
 
     const check = (type) => {

@@ -47,12 +47,12 @@ const dispatch = useDispatch()
             let actualTarget = languageInUse.target
             let actualSource = languageInUse.source
             if (showList === "target"){
-                dispatch({type:"@setExtraLanguage", payload: item })
-                setLanguageInUse({...languageInUse, ...{ target: item}, ...{target: actualTarget }})
+                dispatch({type:"@setExtraTargetLanguage", payload: item })
+                setLanguageInUse({...languageInUse, ...{ source: actualSource }, ...{target: item}})
             }
             if (showList === "source"){
-                dispatch({type:"@setExtraLanguage", payload: item })
-                setLanguageInUse({...languageInUse, ...{ source: item}, ...{target: actualSource }})    
+                dispatch({type:"@setExtraSourceLanguage", payload: item })
+                setLanguageInUse({...languageInUse, ...{ source: item}, ...{target: actualTarget }})    
             }
         }
             
