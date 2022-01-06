@@ -2,10 +2,19 @@ Google-Translate-clone
 =============
 Traductor con la utlización de Google Translate API por Google Cloud. ([Link](https://rapidapi.com/googlecloud/api/google-translate1/))
 
+
 <br />
 
 <div align="center">
-  
+
+<div align="center">
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/49535753/148455868-0ade1454-12ae-40ab-8377-828480da9b18.png" width="900" title="hover text">
+</p>
+
+</div>
+
 ## Tecnologías
   
 </div>
