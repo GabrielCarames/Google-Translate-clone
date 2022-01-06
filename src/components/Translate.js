@@ -11,7 +11,7 @@ const Translate = () => {
     const {languageList} = useLanguagesListHelper()
     const {setTextToTranslate, textTranslated, languageArrowList, changeLanguage, check, textToTranslate, setTextTranslated, autoGrow, emptyValue, checkActivatedLanguage, invertLanguage, languageInUse, setLanguageInUse} = useTranslateHelper(showList, setShowList, setResults)
     const languagesState = useSelector(state => state.changeLanguageReducer)
-
+    console.log("showlist", showList)
     return (
         <article className="body-translate-container translate">
             <header className="translate-header">
@@ -33,9 +33,9 @@ const Translate = () => {
                     </ul>
                 </div>
             </header>
-            <SearchLanguage languageList={languageList} showList={showList} setShowList={setShowList} results={results} setResults={setResults} />
+            {(showList || results) && <SearchLanguage languageList={languageList} showList={showList} setShowList={setShowList} results={results} setResults={setResults} languageInUse={languageInUse} setLanguageInUse={setLanguageInUse} />}
             {(languageList || showList) && <LanguageList languageList={languageList} showList={showList} setShowList={setShowList} languageInUse={languageInUse} setLanguageInUse={setLanguageInUse} />}
-            <body className={results ? "translate-body inactive" : "translate-body"} id="translate-body-id">
+            <div className={results ? "translate-body inactive" : "translate-body"} id="translate-body-id">
                 <div className="translate__text-to-translate">
                     <textarea className="translate__textarea" type="text" autoFocus onChange={(e)=>{setTextToTranslate(e.target.value); autoGrow(e.target)}} value={textToTranslate} id="translateText-textarea"></textarea>
                     {textToTranslate && <div className="translate__fa-times" onClick={()=> {emptyValue(); setTextTranslated("Translation")}}><i className="fas fa-times"></i></div>} 
@@ -43,7 +43,7 @@ const Translate = () => {
                 <div className={textTranslated === 'Translation' ? "translate__traduction" : "translate__traduction active"}>
                     <p className="translate__text-result">{textTranslated}</p>
                 </div>
-            </body>
+            </div>
         </article>
     )
 }

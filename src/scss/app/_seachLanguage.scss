@@ -1,5 +1,6 @@
 .search-language-container {
-    display: none;
+    display: flex;
+    align-items: center;
     height: 57px;
     padding: 5px;
     border: 1px solid rgba(0, 0, 0, 0.12);
@@ -42,10 +43,6 @@
         &:hover {
             background-color: #F4F4F4;
         }
-    }
-    &.active {
-        display: flex;
-        align-items: center;
     }
 }
 .language-results {

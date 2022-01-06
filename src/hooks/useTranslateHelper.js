@@ -10,7 +10,7 @@ export function useTranslateHelper (showList, setShowList, setResults) {
     const [textTranslated, setTextTranslated] = useState('Translation')
     const [textToTranslate, setTextToTranslate] = useState()
     const dispatch = useDispatch()
-    console.log("asdasdasdasdasd", process.env.X_RAPIDAPI_KEY)
+
     const getTraduction = () => {
         let data
         if(languagesState.detect) data = qs.stringify({q: textToTranslate})
@@ -21,7 +21,7 @@ export function useTranslateHelper (showList, setShowList, setResults) {
             headers: {
                 'content-type': 'application/x-www-form-urlencoded',
                 'x-rapidapi-host': 'google-translate1.p.rapidapi.com',
-                'x-rapidapi-key': process.env.X_RAPIDAPI_KEY
+                'x-rapidapi-key': process.env.REACT_APP_X_RAPIDAPI_KEY
             },
             data: data
         };
@@ -75,10 +75,12 @@ export function useTranslateHelper (showList, setShowList, setResults) {
     }
 
     useEffect(()=>{
-        const timer = setTimeout(async () => {
-            getTraduction()
-        }, 1000)
-        return () => clearTimeout(timer);
+        if(textToTranslate) {
+            const timer = setTimeout(async () => {
+                getTraduction()
+            }, 1000)
+            return () => clearTimeout(timer);
+        }
     }, [textToTranslate])
 
     const autoGrow = (element) => {

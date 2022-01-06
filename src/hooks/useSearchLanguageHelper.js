@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import { useDispatch } from "react-redux"
 
-export function useSearchLanguageHelper (languages, setShowList, results, setResults) {
+export function useSearchLanguageHelper(languageList, setShowList, results, setResults, showList, languageInUse, setLanguageInUse) {
     const [textToSearch, setTextToSearch] = useState()
+    const dispatch = useDispatch()
+    const prevShowListRef = useRef();
 
     const backToLanguage = () => {
         document.getElementById("language-result-id").className = "language-results"
-        document.getElementById("search-language-id").className = "search-language-container"
         document.getElementById("translate-body-id").className = "translate-body"
     }
 
     useEffect(() => {
         if (!textToSearch) return 
+        prevShowListRef.current = showList;
         const timer = setTimeout(async () => {
-            const searchResults = languages.filter(languageItem => {return languageItem.name.toLowerCase().indexOf(textToSearch) >= 0})
+            const searchResults = languageList.filter(languageItem => {return languageItem.name.toLowerCase().indexOf(textToSearch) >= 0})
             searchResults ? setResults(searchResults) : setResults('No results')
             setShowList(false)
         }, 1000);
@@ -33,7 +36,37 @@ export function useSearchLanguageHelper (languages, setShowList, results, setRes
         setShowList(true)
     }
 
-    return {setTextToSearch, backToLanguage, backToLanguagesList, textToSearch, emptyValue}
+    const selectLanguage = (item) => {
+        const prevShowList = prevShowListRef.current;
+        if(window.innerWidth >= 320 && window.innerWidth <= 1200) {
+            setLanguageInUse({...languageInUse, ...{ source: item}})
+            switch (prevShowList) {
+                case "target": dispatch({type:"@setResponsiveTarget", payload: item })
+                    break;
+                case "source": dispatch({type:"@setResponsiveSource", payload: item })
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            let actualTarget = languageInUse.target
+            let actualSource = languageInUse.source
+            switch (prevShowList) {
+                case "target": 
+                    dispatch({type:"@setExtraTargetLanguage", payload: item })
+                    setLanguageInUse({...languageInUse, ...{ source: actualSource }, ...{target: item}})
+                    break;
+                case "source": 
+                    dispatch({type:"@setExtraSourceLanguage", payload: item })
+                    setLanguageInUse({...languageInUse, ...{ source: item}, ...{target: actualTarget }})    
+                    break;
+                default:
+                    break;
+            }
+        }   
+    }
+
+    return {setTextToSearch, backToLanguage, backToLanguagesList, textToSearch, emptyValue, selectLanguage}
 }
 
 export default useSearchLanguageHelper

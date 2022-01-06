@@ -1,6 +1,5 @@
 const languagesList = []
 
-
 const languageHistoryReducer = (state = languagesList, {type, payload}) => {
     switch (type) {
         case "@languagesHistory":

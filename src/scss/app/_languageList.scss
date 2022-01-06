@@ -21,7 +21,7 @@
         padding: 5px 0;
         .language-list__item {
             display: flex;
-            justify-content: start;
+            justify-content: flex-start;
             align-items: center;
             width: 210px;
             height: 32px;
@@ -44,7 +44,7 @@
         }
         .language-list__item--target {
             display: flex;
-            justify-content: start;
+            justify-content: flex-start;
             align-items: center;
             width: 210px;
             height: 32px;
@@ -63,7 +63,7 @@
         }
         .language-list__item--history {
             display: flex;
-            justify-content: start;
+            justify-content: flex-start;
             align-items: center;
             width: 210px;
             height: 32px;

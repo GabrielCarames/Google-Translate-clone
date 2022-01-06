@@ -8,7 +8,7 @@ import './scss/index.css';
 import App from './App';
 
 const app = combineReducers({
-    changeLanguageReducer, languageHistoryReducer,
+    changeLanguageReducer, languageHistoryReducer
 })
 
 let store = createStore(app, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
