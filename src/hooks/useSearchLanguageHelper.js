@@ -53,13 +53,25 @@ export function useSearchLanguageHelper(languageList, setShowList, results, setR
             let actualSource = languageInUse.source
             switch (prevShowList) {
                 case "target": 
-                    dispatch({type:"@setExtraTargetLanguage", payload: item })
-                    setLanguageInUse({...languageInUse, ...{ source: actualSource }, ...{target: item}})
+                    if (languageInUse.source.name === item.name){
+                        dispatch({type:"@setExtraTargetLanguage", payload: item })
+                        setLanguageInUse({...languageInUse, ...{ source: actualTarget }, ...{target: item}})
+                    } else {
+                        dispatch({type:"@setExtraTargetLanguage", payload: item })
+                        setLanguageInUse({...languageInUse, ...{ source: actualSource }, ...{target: item}})
+                    }
                     break;
+                    
                 case "source": 
-                    dispatch({type:"@setExtraSourceLanguage", payload: item })
-                    setLanguageInUse({...languageInUse, ...{ source: item}, ...{target: actualTarget }})    
+                    if (languageInUse.target.name === item.name){
+                        dispatch({type:"@setExtraSourceLanguage", payload: item })
+                        setLanguageInUse({...languageInUse, ...{ source: item}, ...{target: actualSource }})   
+                    }else{
+                        dispatch({type:"@setExtraSourceLanguage", payload: item })
+                        setLanguageInUse({...languageInUse, ...{ source: item}, ...{target: actualTarget }})  
+                    }
                     break;
+
                 default:
                     break;
             }

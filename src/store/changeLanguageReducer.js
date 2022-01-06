@@ -1,8 +1,8 @@
 const languages = {
     source: {language: "en", name: "english"}, //Representa el primer idioma a traducir, como no hay nada por default, se va a detectar automaticamente el idioma introducido
     target: {language: "es", name: "spanish"},//Representa el idioma por defecto de la pagina en general, y el idioma por defecto a traducir, ej: metes "hola" y lo traduce a ingles "hello"
-    extraSource: {language: "sd", name: "sindhi"},
-    extraTarget: {language: "sd", name: "sindhi"},
+    extraSource: {language: "sd", name: "Sindhi"},
+    extraTarget: {language: "sd", name: "Sindhi"},
 }
 
 
