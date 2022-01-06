@@ -6,7 +6,7 @@ const Header = () => {
                 <p className="header__title">Traductor</p>
             </div>
             <div className="header-toggle-theme-container">
-                <button className="header__button"></button>
+                <button className="header__button" onClick={() => alert("Modo oscuro aún no disponible")}></button>
             </div>
         </header>
     )
