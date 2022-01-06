@@ -1,6 +1,6 @@
 Google-Translate-clone
 =============
-Traductor con la utlización de Google Translate API por Google Cloud. ([Link](https://rapidapi.com/googlecloud/api/google-translate1/))
+Traductor web con la utlización de Google Translate API por Google Cloud. ([Link](https://rapidapi.com/googlecloud/api/google-translate1/))
 
 
 <br />
@@ -42,8 +42,8 @@ Traductor con la utlización de Google Translate API por Google Cloud. ([Link](h
 ## Selector de idioma
 * Traductor con selector de ***gran variedad*** de idiomas de todo el mundo.
 
-## Detector de lenguajes
-* Cuenta con un ***detector automático*** de idioma a partir de la palabra introducida.
+## Buscador de idiomas
+* Cuenta con un buscador de idiomas rápido y compatible con el resto del sistema.
 
 ## Diseño responsivo
 * Posee un diseño adaptable a ***distintas resoluciones y dispositivos móviles***
