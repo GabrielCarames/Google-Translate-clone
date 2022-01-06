@@ -1,6 +1,6 @@
+import { connect } from "react-redux";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
     return {
@@ -11,8 +11,8 @@ const mapStateToProps = (state) => {
 function App() {
   return (
     <div className="app-container app">
-      <Header></Header>
-      <Body></Body>
+      <Header />
+      <Body />
     </div>
   );
 }

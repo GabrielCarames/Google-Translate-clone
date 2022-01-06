@@ -6,55 +6,52 @@
     cursor: pointer;
     background-color: white;
     color: #757575;
-
 }
+
 @mixin button-container {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-.body-top{
+
+.body-top {
     height: 97px;
     background-color: rgba(128, 128, 128, 0.048);
     border-bottom: 1px solid rgba(0,0,0,0.12);;
 }
-
 
 .body-button-container{
     display: flex;
     margin-top: 95px;
     align-items: center;
     justify-content: center;
-    
-    .fas{
+    .fas {
         font-size: 25px
     }
-    .body-save-button-container{
+    .body-save-button-container {
         @include button-container;
         margin-left: 40px;
-        .body__save-button{
+        .body__save-button {
             @include button;
         }
-        .body__save-span{
+        .body__save-span {
             margin-top: 15px;
             color: #757575;
         }
-        
     }
-    .body-history-button-container{
+    .body-history-button-container {
         @include button-container;
-        .body__history-button{
+        .body__history-button {
             @include button;
         }
-        .body__history-span{
+        .body__history-span {
             margin-top: 15px;
             color: #757575;
         }
-        
     }
 }
 
-.body-container{
+.body-container {
     display: flex;
     flex-direction: column;
     align-items: center;

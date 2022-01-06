@@ -1,18 +1,17 @@
 import { useDispatch } from "react-redux"
 import useSearchLanguageHelper from "../hooks/useSearchLanguageHelper"
 
-
-const SearchLanguage = ({languages, showList, setShowList, results, setResults}) => {
-const {searchLanguage, backToLanguage, backToLanguagesList, textToSearch, emptyValue} = useSearchLanguageHelper(languages, setShowList, results, setResults)
-const dispatch = useDispatch()
+const SearchLanguage = ({languageList, showList, setShowList, results, setResults}) => {
+    const {setTextToSearch, backToLanguage, backToLanguagesList, textToSearch, emptyValue} = useSearchLanguageHelper(languageList, setShowList, results, setResults)
+    const dispatch = useDispatch()
 
     return (
         <>
             <div className={showList || results ? "search-language-container active" : "search-language-container"} id="search-language-id">
-                <button className="search-language-icon" onClick={() => {console.log("result",results); backToLanguagesList()}}>
+                <button className="search-language-icon" onClick={() => backToLanguagesList()}>
                     <i className="fas fa-arrow-left"></i>
                 </button>
-                <input type="text" className="search-language-container__input" value={textToSearch} placeholder="Search languages" onChange={(e)=>searchLanguage(e.target.value)}/>
+                <input type="text" className="search-language-container__input" value={textToSearch} placeholder="Search languages" onChange={(e)=> setTextToSearch(e.target.value)}/>
                 {results && <div className="translate__fa-times" onClick={()=> emptyValue()}><i className="fas fa-times"></i></div>} 
             </div>
             <div className={results ? "language-results active" : "language-results"} id="language-result-id">
@@ -20,15 +19,16 @@ const dispatch = useDispatch()
                 {
                     results && results.map((result, id) => {
                         return (
-                                <li className="list__item" key={id} onClick={()=>{dispatch({type:"@languagesHistory", payload: result });dispatch({type:"@setLanguage", payload: result });backToLanguage()}}>
-                                    <p className="list__language-name">{result.name}</p>
-                                </li>
-                                )
-                            })
-                        }
+                            <li className="list__item" key={id} onClick={()=>{dispatch({type:"@languagesHistory", payload: result });dispatch({type:"@setLanguage", payload: result });backToLanguage()}}>
+                                <p className="list__language-name">{result.name}</p>
+                            </li>
+                        )
+                    })
+                }
                 </ul>
             </div>
         </>
     )
 }
+
 export default SearchLanguage

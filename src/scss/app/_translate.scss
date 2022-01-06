@@ -1,5 +1,5 @@
 @mixin list {
-    .translate-list{
+    .translate-list {
         list-style: none;
         display: flex;
         align-items: center;
@@ -9,7 +9,7 @@
         font-size: 14px;
         color: #5f6368;
         letter-spacing: -.0178571429em;
-        .list__item--target{
+        .list__item--target {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,65 +18,64 @@
             height: 100%;
             padding: 0px 20px 0px 15px;
             transition: opacity 150ms linear;
-            &:hover{
+            &:hover {
                 cursor: pointer;
                 background-color: #1a73e80a;
             }
-            &.active{
+            &.active {
                 border-bottom: 3px solid #1a73e8;
                 color: #1a73e8;
             }
-            .list__text{
+            .list__text {
                 margin: 0px;
                 text-transform: uppercase;
             } 
         }
-        .list__item--source{
+        .list__item--source {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100%;
             padding: 0px 20px 0px 15px;
             border-bottom: 3px solid #ffffff;
-            &:hover{
+            &:hover {
                 cursor: pointer;
                 background-color: #3c404310;
             }
-            &.active{
+            &.active {
                 border-bottom: 3px solid #1a73e8;
-                .list__text{
+                .list__text {
                     color: #1a73e8;
                 } 
             }
-            .list__text{
+            .list__text {
                 margin: 0px;
                 text-transform: uppercase;
             }
         }
-        .list__item--extra{
+        .list__item--extra {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100%;
             padding: 0px 20px 0px 15px;
             border-bottom: 3px solid #ffffff;
-            &:hover{
+            &:hover {
                 cursor: pointer;
                 background-color: #3c404310;
             }
-            &.active{
+            &.active {
                 border-bottom: 3px solid #1a73e8;
-                .list__text{
+                .list__text {
                     color: #1a73e8;
                 } 
             }
-            .list__text{
+            .list__text {
                 margin: 0px;
                 text-transform: uppercase;
             }
         }
-
-        .list__arrow{
+        .list__arrow {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -85,22 +84,21 @@
             width: 40px;
             border-radius: 30px;
             cursor: pointer;
-            &:hover{
+            &:hover {
                 cursor: pointer;
                 background-color: #3c404310;
             }
         }
     }
-    
-    
 }
+
 @mixin navbar {
     border: 1px solid rgba(0,0,0,0.12);
     width: 50%;
     height: 100%;
 }
 
-.body-translate-container{
+.body-translate-container {
     display: flex;
     flex-direction: column;
     width: 1280px;
@@ -110,17 +108,17 @@
     border-bottom-right-radius: unset;
     background-color: white;
     box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
-    .translate-header{
+    .translate-header {
         display: flex;
         height: 48px;
-        .translate__left-navbar{
+        .translate__left-navbar {
             @include navbar;
             @include list;
             border-top-left-radius: 8px;
             border-bottom-left-radius: 0;
             border: none;
         }
-        .list__change-language{
+        .list__change-language {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -130,11 +128,11 @@
             border-radius: 500px;
             color: #5f6368;
             cursor: pointer;
-            &:hover{
+            &:hover {
                 background-color: #3c404310;
             }
         }
-        .translate__right-navbar{
+        .translate__right-navbar {
             @include navbar;
             @include list;
             border-top-right-radius: 8px;
@@ -142,7 +140,7 @@
             border: none;
         }
     }
-    .translate-body{
+    .translate-body {
         display: flex;
         border-top: 1px solid rgba(0,0,0,0.12);
         min-height: 172px;
@@ -154,13 +152,13 @@
         &.inactive {
             display: none;
         }
-        .translate__text-to-translate{
+        .translate__text-to-translate {
             border-right: 1px solid rgba(0,0,0,0.12);
             width: 50%;
             border-top: none;
             display: flex;
             justify-content: center;
-            .translate__textarea{
+            .translate__textarea {
                 font-size: 24px;
                 height: 87%;
                 width: 95%;
@@ -180,7 +178,7 @@
                     outline: none;
                 }
             }
-            .translate__fa-times{
+            .translate__fa-times {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -196,10 +194,8 @@
                     background-color: #F4F4F4;
                 }
             }
-            
         }
         .translate__traduction{
-            // border: 1px solid rgba(0,0,0,0.12);
             width: 50%;
             .translate__text-result{
                 padding: 20px 58px 20px 24px;
@@ -213,15 +209,15 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 1200px) {
-    .body-translate-container{
+    .body-translate-container {
         width: 100%;
         margin-top: 0;
-        .translate-header{
+        .translate-header {
             border-radius: 0;
-            .translate__left-navbar{
+            .translate__left-navbar {
                 border-radius: 0;
                 border: none;
-                .translate-list{
+                .translate-list {
                     margin-left: 0;
                     justify-content: center;
                     .list__item--source {
@@ -229,74 +225,60 @@
                         &:nth-child(1) {
                             display: flex;
                         }
-                        &.active{
+                        &.active {
                             border-bottom: 3px solid white;
                         }
                     }
-                    // .list__item--target {
-                    //     border: none;
-                    // }
-                    // .list__item--extra{
-                    //     display: none
-                    // }
                     .list__arrow {
                         display: none
                     }
                 }
             }
-            .translate__right-navbar{
+            .translate__right-navbar {
                 border-radius: 0;
                 border: none;
                 .translate-list{
                     margin-left: 0;
                     justify-content: center;
-                    // .list__item--source {
-                    //     display: none;
-                    // }
                     .list__item--target {
                         display: none;
                         &:nth-child(1) {
                             display: flex;
                         }
-                        &.active{
+                        &.active {
                             border-bottom: 3px solid white;
                         }
                     }
-                    // .list__item--extra{
-                    //     display: none
-                    // }
                     .list__arrow {
                         display: none
                     }
                 }
-                .list__change-language{
+                .list__change-language {
                     display: flex;
                     align-items: center;
                     justify-content: center;
                 }
             }
         }
-        .translate-body{
+        .translate-body {
             flex-direction: column;
             height: auto;
             border-radius: 0;
-            // border: none;
-            .translate__text-to-translate{
+            .translate__text-to-translate {
                 width: 99%;
                 min-height: 150px;
                 border-radius: 0;
                 border: none;
-                .translate__textarea{
+                .translate__textarea {
                     border-radius: 0;
                     border: none;
                     width: 100%;
                     height: auto;
                     padding:20px;
                     box-sizing: border-box;
-                    
                 }
             }
-            .translate__traduction{
+            .translate__traduction {
                 display: none;
                 width: auto;
                 margin-top: 10px;
@@ -304,7 +286,7 @@
                     display: flex;
                     background-color: #1a73e8;
                 }
-                .translate__text-result{
+                .translate__text-result {
                     color: white;
                     word-break: break-all;
                 }

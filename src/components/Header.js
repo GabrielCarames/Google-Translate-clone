@@ -1,4 +1,4 @@
-const Header = () =>{
+const Header = () => {
     return (
         <header className="app__header header">
             <div className="header-container">
@@ -8,8 +8,8 @@ const Header = () =>{
             <div className="header-toggle-theme-container">
                 <button className="header__button"></button>
             </div>
-            
         </header>
     )
-} 
+}
+
 export default Header
