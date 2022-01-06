@@ -25,7 +25,6 @@ const changeLanguageReducer = (state = languages, {type, payload}) => {
             languagesCopy.source = payload
             return languagesCopy
         case "@invertExtras":
-            
             languagesCopy.extraSource = actualExtraTarget
             languagesCopy.extraTarget = actualExtraSource
             return languagesCopy
@@ -40,6 +39,12 @@ const changeLanguageReducer = (state = languages, {type, payload}) => {
                 default:
                     break;
             }break;
+            case "@invertResponsive":
+                let actualTarget = languagesCopy.target
+                let actualSource = languagesCopy.source
+                languagesCopy.source = actualTarget
+                languagesCopy.target = actualSource
+                return languagesCopy
         default:
             return state
             

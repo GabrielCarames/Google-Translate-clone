@@ -40,7 +40,7 @@ const Translate = () => {
                 </div>
             </header>
             <SearchLanguage languages={languages} showList={showList} setShowList={setShowList} results={results} setResults={setResults} ></SearchLanguage>
-            {(languages || showList) && <LanguageList source={languageInUse.source} languages={languages} showList={showList} languageInUse={languageInUse} setLanguageInUse={setLanguageInUse} />}
+            {(languages || showList) && <LanguageList source={languageInUse.source} languages={languages} showList={showList} setShowList={setShowList} languageInUse={languageInUse} setLanguageInUse={setLanguageInUse} />}
             <body className={results ? "translate-body inactive" : "translate-body"} id="translate-body-id">
                 <div className="translate__text-to-translate">
                     <textarea className="translate__textarea" type="text" autoFocus onChange={(e)=>{translateText(e.target.value);autoGrow(e.target)}} value={textToTranslate} id="translateText-textarea"></textarea>

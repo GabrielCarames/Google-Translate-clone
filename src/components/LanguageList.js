@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 
 
-const LanguageList = ({source, languages, showList, languageInUse, setLanguageInUse}) =>{
+const LanguageList = ({source, languages, showList, setShowList, languageInUse, setLanguageInUse}) =>{
 const dispatch = useDispatch()
     const checkLanguage = (className, item, id) => {
         const languages = languagehistorySelector.filter((languageItem) => {
@@ -75,7 +75,7 @@ const dispatch = useDispatch()
             <ul className="language-list">
                 {
                     languages.map((item, id) => {
-                            return <li className={checkLanguage("language-list__item",item, id)} key={id} onClick={()=>{selectLanguage(item);dispatch({type:"@languagesHistory", payload: item })}}><i className="fas fa-history"></i><i className="fas fa-check"></i>{item.name}</li>
+                            return <li className={checkLanguage("language-list__item",item, id)} key={id} onClick={()=>{selectLanguage(item);dispatch({type:"@languagesHistory", payload: item }); setShowList(false)}}><i className="fas fa-history"></i><i className="fas fa-check"></i>{item.name}</li>
                     })
                 }
             </ul>

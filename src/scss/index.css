@@ -629,6 +629,9 @@ body .app-container {
     display: -ms-flexbox;
     display: flex;
   }
+  .body-translate-container .translate-header .translate__left-navbar .translate-list .list__item--source.active {
+    border-bottom: 3px solid white;
+  }
   .body-translate-container .translate-header .translate__left-navbar .translate-list .list__arrow {
     display: none;
   }
@@ -649,6 +652,9 @@ body .app-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+  .body-translate-container .translate-header .translate__right-navbar .translate-list .list__item--target.active {
+    border-bottom: 3px solid white;
   }
   .body-translate-container .translate-header .translate__right-navbar .translate-list .list__arrow {
     display: none;

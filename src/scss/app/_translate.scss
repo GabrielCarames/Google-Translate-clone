@@ -229,6 +229,9 @@
                         &:nth-child(1) {
                             display: flex;
                         }
+                        &.active{
+                            border-bottom: 3px solid white;
+                        }
                     }
                     // .list__item--target {
                     //     border: none;
@@ -254,6 +257,9 @@
                         display: none;
                         &:nth-child(1) {
                             display: flex;
+                        }
+                        &.active{
+                            border-bottom: 3px solid white;
                         }
                     }
                     // .list__item--extra{

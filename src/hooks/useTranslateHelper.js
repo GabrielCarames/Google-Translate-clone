@@ -47,12 +47,16 @@ export function useTranslateHelper (languages, showList, setShowList, results, s
         let actualSource = languageInUse.source
         let actualTarget = languageInUse.target
         setLanguageInUse({...languageInUse, ...{ source: actualTarget}, ...{target: actualSource}})
-        if ((languagesState.extraSource.name === languageInUse.source.name && languagesState.extraTarget.name === languageInUse.target.name)){
-            dispatch({type: "@invertExtras"})
-        }else if (languageInUse.source.name === languagesState.extraSource.name ){
-            dispatch({type: "@changeLanguage", payload: "source"})
-        }else if(languageInUse.target.name === languagesState.extraTarget.name){
-            dispatch({type: "@changeLanguage", payload: "target"})
+        if(window.innerWidth >= 320 && window.innerWidth <= 1200){
+            dispatch({type:"@invertResponsive"})
+        }else {
+            if ((languagesState.extraSource.name === languageInUse.source.name && languagesState.extraTarget.name === languageInUse.target.name)){
+                dispatch({type: "@invertExtras"})
+            }else if (languageInUse.source.name === languagesState.extraSource.name ){
+                dispatch({type: "@changeLanguage", payload: "source"})
+            }else if(languageInUse.target.name === languagesState.extraTarget.name){
+                dispatch({type: "@changeLanguage", payload: "target"})
+            }
         }
         
     }
