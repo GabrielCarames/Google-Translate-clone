@@ -28,18 +28,6 @@ const changeLanguageReducer = (state = languages, {type, payload}) => {
             languagesCopy.extraSource = actualExtraTarget
             languagesCopy.extraTarget = actualExtraSource
             return languagesCopy
-        // case "@changeExtras":
-        //     switch (payload) {
-        //         case "target":
-                    
-        //             break;
-        //         case "source":
-
-        //             break;
-        //         default:
-        //             break;
-        //     }
-        //     return
         case "@changeLanguage":
             switch (payload) {
                 case "source":

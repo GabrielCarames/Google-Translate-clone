@@ -63,11 +63,13 @@ export function useTranslateHelper (showList, setShowList, setResults) {
                 let actualSource = languageInUse.source
                 if(languageToChange.language === languageInUse.target.language) setLanguageInUse({...languageInUse, ...{ source: languageToChange}, ...{target: actualSource}})
                 else setLanguageInUse({...languageInUse, ...{ source: languageToChange}})
+                if (languagesState.extraSource.name === languageInUse.source.name) dispatch({type: "@invertExtras"})
                 break;
             case "left":
                 let actualTarget = languageInUse.target
                 if(languageToChange.language === languageInUse.source.language) setLanguageInUse({...languageInUse, ...{ source: actualTarget}, ...{target: languageToChange}})
                 else setLanguageInUse({...languageInUse, ...{ target: languageToChange}})
+                if (languagesState.extraTarget.name === languageInUse.target.name) dispatch({type: "@invertExtras"})
                 break;
             default:
                 break;

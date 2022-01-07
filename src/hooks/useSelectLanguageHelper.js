@@ -25,7 +25,6 @@ export default function useSelectLanguageHelper(languageInUse, setLanguageInUse)
                 case "target":
                     if(languagesState.extraSource.name === languageInUse.source.name && languagesState.extraTarget.name === languageInUse.target.name) dispatch({type: "@changeLanguage", payload: "target"})
                     dispatch({type:"@setExtraTargetLanguage", payload: item})
-                    
                     if(languageInUse.source.name === item.name) setLanguageInUse({...languageInUse, ...{source: actualTarget}, ...{target: item}})
                     else setLanguageInUse({...languageInUse, ...{target: item}})
                     break;
